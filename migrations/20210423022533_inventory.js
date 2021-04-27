@@ -6,12 +6,13 @@ exports.up = function (knex) {
     table.specificType("category", "varchar[]");
     table.varchar("sku");
     table.varchar("name");
-    table.integer("quantity");
+    table.integer("units");
+    table.integer("total_quantity");
     table.integer("price");
     table.date("best_before_date");
     table.text("descriptions");
     table.varchar("thumbnail");
-    table.varchar("image");
+    table.text("image");
     table.timestamps(true, true);
   });
 };
