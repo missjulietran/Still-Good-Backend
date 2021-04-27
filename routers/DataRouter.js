@@ -15,13 +15,6 @@ module.exports = (express) => {
   const DataService = require("../services/DataService");
   const dataService = new DataService(knex);
   //   Upload data
-  router.post("/upload", function (req, res) {
-    console.log("insert", req.body);
-    return dataService
-      .insert(req.body)
-      .then(() => res.send("upload data"))
-      .catch((err) => res.status(500).json(err));
-  });
 
   //   Upload Image
   var upload = multer({
@@ -34,10 +27,10 @@ module.exports = (express) => {
       }
     },
   });
+  var imgurURL;
 
-  router.post("/upload", upload.single("file"), async function (req, res) {
-    console.log(req.file);
-    var imgurURL;
+  router.post("/uploadImage", upload.single("file"), async function (req, res) {
+    console.log("Upload image route");
     const encode_image = req.file.buffer.toString("base64");
     var options = {
       method: "POST",
@@ -56,10 +49,15 @@ module.exports = (express) => {
       imgurURL = JSON.parse(imageURL).data.link;
       console.log(imgurURL);
     });
+    res.json("uploadimg");
+  });
 
+  router.post("/upload", function (req, res) {
+    console.log("insert");
+    console.log(imgurURL);
     return dataService
-      .addImage(imgurURL)
-      .then(() => res.send("upload image"))
+      .insert(req.body, imgurURL) //USERID
+      .then(() => console.log("uploaded data"))
       .catch((err) => res.status(500).json(err));
   });
 
