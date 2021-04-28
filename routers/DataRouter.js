@@ -29,8 +29,19 @@ module.exports = (express) => {
   });
   var imgurURL;
 
+  router.get("/getInventoryData/:userId", function (req, res) {
+    console.log("get inventory data");
+    return dataService
+      .getInventoryData(1) //USERID
+      .then((data) => {
+        console.log(data);
+        return data;
+      })
+      .catch((err) => res.status(500).json(err));
+  });
+
   router.post("/uploadImage", upload.single("file"), async function (req, res) {
-    console.log("Upload image route");
+    // console.log("Upload image route");
     const encode_image = req.file.buffer.toString("base64");
     var options = {
       method: "POST",
@@ -47,16 +58,21 @@ module.exports = (express) => {
       if (error) throw new Error(error);
       var imageURL = response.body;
       imgurURL = JSON.parse(imageURL).data.link;
-      console.log(imgurURL);
+      // console.log(imgurURL);
     });
     res.json("uploadimg");
   });
 
   router.post("/upload", function (req, res) {
-    console.log("insert");
-    console.log(imgurURL);
     return dataService
-      .insert(req.body, imgurURL) //USERID
+      .insertInventory(req.body, imgurURL) //USERID
+      .then(() => console.log("uploaded data"))
+      .catch((err) => res.status(500).json(err));
+  });
+
+  router.post("/uploadEvent", function (req, res) {
+    return dataService
+      .insertEvent(req.body, imgurURL) //USERID
       .then(() => console.log("uploaded data"))
       .catch((err) => res.status(500).json(err));
   });

@@ -5,6 +5,7 @@ exports.up = function (knex) {
     table.foreign("seller_id").references("users.id");
     table.integer("inventory_id").unsigned();
     table.foreign("inventory_id").references("inventory.id");
+    table.text("image");
     table.date("start_date");
     table.date("end_date");
     table.timestamps(true, true);

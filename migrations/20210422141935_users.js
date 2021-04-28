@@ -4,6 +4,7 @@ exports.up = function (knex) {
     table.boolean("buyer");
     table.boolean("seller");
     table.varchar("name");
+    table.varchar("email");
     table.varchar("password");
     table.string("tier");
     table.text("address");

@@ -3,7 +3,28 @@ module.exports = class DataService {
     this.knex = knex;
   }
 
-  insert(data, image) {
+  getInventoryData(userid) {
+    return this.knex
+      .select(
+        "id",
+        "seller_id",
+        "category",
+        "sku",
+        "name",
+        "units",
+        "total_quantity",
+        "price",
+        "best_before_date",
+        "image"
+      )
+      .from("inventory")
+      .where("seller_id", userid)
+      .then((data) => {
+        return data;
+      });
+  }
+
+  insertInventory(data, image) {
     console.log("inserting", data, image);
     return this.knex("inventory").insert({
       //USERID
@@ -18,10 +39,14 @@ module.exports = class DataService {
       image: image,
     });
   }
-  // addImage(image) {
-  //   return this.knex("inventory")
-  //   .insert({
-  //     image: image,
-  //   });
-  // }
+
+  insertEvent(data, image) {
+    console.log("event inserting", data, image);
+    return this.knex("events").insert({
+      // USERID
+      image: image,
+      start_date: data.start,
+      end_date: data.end,
+    });
+  }
 };
