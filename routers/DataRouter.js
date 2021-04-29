@@ -14,7 +14,6 @@ module.exports = (express) => {
 
   const DataService = require("../services/DataService");
   const dataService = new DataService(knex);
-  //   Upload data
 
   //   Upload Image
   var upload = multer({
@@ -30,12 +29,11 @@ module.exports = (express) => {
   var imgurURL;
 
   router.get("/getInventoryData/:userId", function (req, res) {
-    console.log("get inventory data");
+    console.log("getting data backend");
     return dataService
-      .getInventoryData(1) //USERID
+      .getInventoryData(req.params.userId) //USERID
       .then((data) => {
-        console.log(data);
-        return data;
+        res.send(data);
       })
       .catch((err) => res.status(500).json(err));
   });
@@ -63,19 +61,36 @@ module.exports = (express) => {
     res.json("uploadimg");
   });
 
-  router.post("/upload", function (req, res) {
+  //Uploda data
+  router.post("/upload/:userId", function (req, res) {
     return dataService
-      .insertInventory(req.body, imgurURL) //USERID
+      .insertInventory(req.params.userId, req.body, imgurURL) //USERID
+      .then(() => res.status(200).json("updated"))
+      .catch((err) => res.status(500).json(err));
+  });
+
+  router.post("/uploadEvent/:userId", function (req, res) {
+    return dataService
+      .insertEvent(req.params.userId, req.body, imgurURL) //USERID
       .then(() => console.log("uploaded data"))
       .catch((err) => res.status(500).json(err));
   });
 
-  router.post("/uploadEvent", function (req, res) {
+  //Update data
+  router.get("/singleProduct/:itemId", function (req, res) {
     return dataService
-      .insertEvent(req.body, imgurURL) //USERID
-      .then(() => console.log("uploaded data"))
+      .getOneItem(req.params.itemId)
+      .then((data) => res.send(data))
       .catch((err) => res.status(500).json(err));
   });
 
+  router.put("/update/:itemId", function (req, res) {
+    console.log("putting", imgurURL);
+
+    return dataService
+      .updateInventory(req.params.itemId, req.body, imgurURL)
+      .then(() => res.status(200).json("updated"))
+      .catch((err) => res.status(500).json(err));
+  });
   return router;
 };
