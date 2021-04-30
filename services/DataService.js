@@ -3,6 +3,7 @@ module.exports = class DataService {
     this.knex = knex;
   }
 
+  // Inventory
   getInventoryData(userid) {
     return this.knex
       .select(
@@ -64,19 +65,8 @@ module.exports = class DataService {
     });
   }
 
-  insertEvent(data, image) {
-    console.log("event inserting", data, image);
-    return this.knex("events").insert({
-      // USERID
-      image: image,
-      start_date: data.start,
-      end_date: data.end,
-    });
-  }
-
   updateInventory(itemid, data, image) {
     //USERID
-    console.log("updating");
     let items = Object.values(data);
     let itemName = Object.keys(data);
     let inventory = {
@@ -100,6 +90,69 @@ module.exports = class DataService {
     return this.knex("inventory")
       .where("id", itemid)
       .update(inventory)
+      .then(() => console.log("updated"))
+      .catch((err) => console.log(err));
+  }
+
+  delInventory(itemid) {
+    return this.knex("inventory")
+      .where("id", itemid)
+      .del()
+      .catch((err) => console(err));
+  }
+
+  // Event
+  insertEvent(userid, data, image) {
+    return this.knex("events").insert({
+      // USERID
+      seller_id: userid,
+      title: data.title,
+      image: image,
+      start_date: data.start,
+      end_date: data.end,
+    });
+  }
+
+  // User
+  getUser(userid) {
+    console.log("getting user");
+    return this.knex("users")
+      .select(
+        "id",
+        "name",
+        "password",
+        "email",
+        "address",
+        "district",
+        "tier",
+        "phone_no"
+      )
+      .where("id", userid)
+      .andWhere("seller", true)
+      .then((data) => {
+        return data;
+      });
+  }
+  updateUser(userid, data, pw) {
+    let userValue = Object.values(data);
+    let userKey = Object.keys(data);
+    let user = {
+      name: data.name,
+      email: data.email,
+      password: pw,
+      address: data.address,
+      district: data.district,
+      phone_no: data.phone_no,
+    };
+    for (let i = 0; i < userValue.length; i++) {
+      if (userValue[i] == "") {
+        delete user[userKey[i]];
+      }
+    }
+
+    return this.knex("users")
+      .where("id", userid)
+      .update(user)
       .then(() => console.log("updated"))
       .catch((err) => console.log(err));
   }
