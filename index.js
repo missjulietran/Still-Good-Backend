@@ -10,9 +10,10 @@ app.use(cors());
 
 // temporary
 const dataRouter = require("./routers/DataRouter")(express);
-
+const dashboardRouter = require("./routers/DashboardRouter")(express);
 // Routers
 app.use("/", dataRouter);
+app.use("/", dashboardRouter);
 
 app.listen(8080, () => {
   console.log("running 8080");

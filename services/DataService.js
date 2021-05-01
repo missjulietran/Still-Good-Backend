@@ -115,7 +115,6 @@ module.exports = class DataService {
 
   // User
   getUser(userid) {
-    console.log("getting user");
     return this.knex("users")
       .select(
         "id",

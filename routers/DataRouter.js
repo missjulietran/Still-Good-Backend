@@ -30,9 +30,8 @@ module.exports = (express) => {
   var imgurURL;
 
   router.get("/getInventoryData/:userId", function (req, res) {
-    console.log("getting data backend");
     return dataService
-      .getInventoryData(req.params.userId) //USERID
+      .getInventoryData(req.params.userId)
       .then((data) => {
         res.send(data);
       })
@@ -65,7 +64,7 @@ module.exports = (express) => {
   //Uploda data
   router.post("/upload/:userId", function (req, res) {
     return dataService
-      .insertInventory(req.params.userId, req.body, imgurURL) //USERID
+      .insertInventory(req.params.userId, req.body, imgurURL)
       .then(() => res.status(200).json("updated"))
       .catch((err) => res.status(500).json(err));
   });
