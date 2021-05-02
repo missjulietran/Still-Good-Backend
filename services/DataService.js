@@ -43,7 +43,7 @@ module.exports = class DataService {
         "descriptions"
       )
       .from("inventory")
-      .where("id", itemid)
+      .where("sku", itemid)
       .then((data) => {
         return data;
       });
@@ -88,7 +88,7 @@ module.exports = class DataService {
     }
     console.log(inventory);
     return this.knex("inventory")
-      .where("id", itemid)
+      .where("sku", itemid)
       .update(inventory)
       .then(() => console.log("updated"))
       .catch((err) => console.log(err));
@@ -96,7 +96,7 @@ module.exports = class DataService {
 
   delInventory(itemid) {
     return this.knex("inventory")
-      .where("id", itemid)
+      .where("sku", itemid)
       .del()
       .catch((err) => console(err));
   }

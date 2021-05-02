@@ -47,6 +47,7 @@ module.exports = (express) => {
           });
           return [sold, revenue];
         })
+
         .catch((err) => console.log(err));
     }
 
@@ -70,16 +71,17 @@ module.exports = (express) => {
               }
             }
           });
+
           return topItem.key;
         })
-        .then((data) =>
-          dataService
+        .then((data) => {
+          return dataService
             .getOneItem(data)
             .then((data) => {
               return data[0].name;
             })
-            .catch((err) => console.log(err))
-        )
+            .catch((err) => console.log(err));
+        })
         .catch((err) => console.log(err));
     }
 

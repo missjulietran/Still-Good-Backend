@@ -3,8 +3,8 @@ exports.up = function (knex) {
     table.increments("id");
     table.integer("buyer_id").unsigned();
     table.foreign("buyer_id").references("users.id");
-    table.integer("inventory_id").unsigned();
-    table.foreign("inventory_id").references("inventory.id");
+    table.varchar("inventory_id").unsigned();
+    table.foreign("inventory_id").references("inventory.sku");
     table.integer("quantity");
     table.boolean("bought");
     table.timestamps(true, true);

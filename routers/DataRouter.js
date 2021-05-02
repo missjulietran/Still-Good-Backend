@@ -78,8 +78,6 @@ module.exports = (express) => {
   });
 
   router.put("/update/:itemId", function (req, res) {
-    console.log("putting", imgurURL);
-
     return dataService
       .updateInventory(req.params.itemId, req.body, imgurURL)
       .then(() => res.status(200).json("updated"))
@@ -90,7 +88,7 @@ module.exports = (express) => {
   router.delete("/delProduct/:itemId", function (req, res) {
     return dataService
       .delInventory(req.params.itemId)
-      .then(() => res.send("delete"))
+      .then(() => res.status(200).json("deleted"))
       .catch((err) => res.status(500).json(err));
   });
 
@@ -113,14 +111,14 @@ module.exports = (express) => {
 
   router.post("/password", function (req, res) {
     pw = Object.keys(req.body);
-    console.log(pw[0]);
     bcrypt.hash(pw[0], 10, function (err, hash) {
       after = hash;
     });
-    res.send("donedone");
+    res.end();
   });
 
   router.put("/updateUser/:userId", function (req, res) {
+    console.log(after);
     return dataService
       .updateUser(req.params.userId, req.body, after)
       .then(() => res.status(200).json("updated"))
