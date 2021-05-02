@@ -33,7 +33,7 @@ module.exports = class DashboardService {
         "inventory.price",
         "inventory.name"
       )
-      .innerJoin("inventory", "orderDetails.inventory_id", "inventory.id")
+      .innerJoin("inventory", "orderDetails.inventory_id", "inventory.sku")
       .where("inventory.seller_id", sellerid)
       .then((data) => {
         return data;
@@ -45,7 +45,7 @@ module.exports = class DashboardService {
     return this.knex("orderDetails")
       .select("orders.id")
       .innerJoin("orders", "orderDetails.orders_id", "orders.id")
-      .innerJoin("inventory", "orderDetails.inventory_id", "inventory.id")
+      .innerJoin("inventory", "orderDetails.inventory_id", "inventory.sku")
       .where("inventory.seller_id", sellerid)
       .then((data) => {
         return data;

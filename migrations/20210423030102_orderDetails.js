@@ -3,9 +3,10 @@ exports.up = function (knex) {
     table.increments("id");
     table.integer("orders_id").unsigned();
     table.foreign("orders_id").references("orders.id");
-    table.integer("inventory_id").unsigned();
-    table.foreign("inventory_id").references("inventory.id");
+    table.varchar("inventory_id").unsigned();
+    table.foreign("inventory_id").references("inventory.sku");
     table.integer("quantity");
+    table.timestamps(true, true);
   });
 };
 

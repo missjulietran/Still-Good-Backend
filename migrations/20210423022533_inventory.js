@@ -4,7 +4,7 @@ exports.up = function (knex) {
     table.integer("seller_id").unsigned();
     table.foreign("seller_id").references("users.id");
     table.specificType("category", "varchar[]");
-    table.varchar("sku");
+    table.varchar("sku").unique(); //changed
     table.varchar("name");
     table.integer("units");
     table.integer("total_quantity");
