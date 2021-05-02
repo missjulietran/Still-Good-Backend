@@ -24,6 +24,50 @@ module.exports = class DataService {
       });
   }
 
+  //Method to grab product based on matching category
+  getCategoryProducts(cat){
+    return this.knex
+      .select(
+        "id",
+        "seller_id",
+        "category",
+        "sku",
+        "name",
+        "units",
+        "total_quantity",
+        "price",
+        "best_before_date",
+        "image"
+      )
+      .from("inventory")
+      .whereRaw('? = any (??)', [cat, 'category'])
+      .then((data) => {
+        return(data);
+      });
+  }
+
+  //Methoud to grab product based on SKU.
+
+  getProducDetails(sku){
+    return this.knex
+    .select(
+      "id",
+        "seller_id",
+        "category",
+        "sku",
+        "name",
+        "units",
+        "total_quantity",
+        "price",
+        "best_before_date",
+        "image"
+    )
+    .from("inventory")
+    .where('sku',sku)
+    .then((data) => {
+      return(data);
+    });
+  }
   insertInventory(data, image) {
     console.log("inserting", data, image);
     return this.knex("inventory").insert({

@@ -40,6 +40,22 @@ module.exports = (express) => {
       .catch((err) => res.status(500).json(err));
   });
 
+//Route for listing of products for a certain category
+  router.get("/category/:products", (req,res)=>{
+    let cat=req.params.products;
+    return dataService
+    .getCategoryProducts(cat)
+    .then((data)=>{
+      res.send(data);
+    })
+  })
+
+  //Route for product detail page
+  router.get("/productpage/:sku", (req,res)=>{
+    let sku=req.params.sku;
+    return dataService.getProducDetails(sku)
+    .then(data=>res.send(data))
+  })
   router.post("/uploadImage", upload.single("file"), async function (req, res) {
     // console.log("Upload image route");
     const encode_image = req.file.buffer.toString("base64");
