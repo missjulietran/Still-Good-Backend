@@ -8,6 +8,7 @@ exports.seed = function (knex) {
         { seller: true, email: "test@test.com" },
         { seller: true, email: "test2@test.com" },
         { buyer: true, email: "test3@test.com" },
+        { buyer: true, email: "test4@test.com" },
       ]);
     });
 };

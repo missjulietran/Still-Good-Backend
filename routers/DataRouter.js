@@ -3,6 +3,7 @@
 module.exports = (express) => {
   const router = express.Router();
   const multer = require("multer");
+  const bcrypt = require("bcrypt");
   var rp = require("request-promise");
   //   const fs = require("fs");
   //   const axios = require("axios");
@@ -14,7 +15,6 @@ module.exports = (express) => {
 
   const DataService = require("../services/DataService");
   const dataService = new DataService(knex);
-  //   Upload data
 
   //   Upload Image
   var upload = multer({
@@ -30,12 +30,10 @@ module.exports = (express) => {
   var imgurURL;
 
   router.get("/getInventoryData/:userId", function (req, res) {
-    console.log("get inventory data");
     return dataService
-      .getInventoryData(1) //USERID
+      .getInventoryData(req.params.userId)
       .then((data) => {
-        console.log(data);
-        return data;
+        res.send(data);
       })
       .catch((err) => res.status(500).json(err));
   });
@@ -63,19 +61,68 @@ module.exports = (express) => {
     res.json("uploadimg");
   });
 
-  router.post("/upload", function (req, res) {
+  //Uploda data
+  router.post("/upload/:userId", function (req, res) {
     return dataService
-      .insertInventory(req.body, imgurURL) //USERID
+      .insertInventory(req.params.userId, req.body, imgurURL)
+      .then(() => res.status(200).json("updated"))
+      .catch((err) => res.status(500).json(err));
+  });
+
+  //Update data
+  router.get("/singleProduct/:itemId", function (req, res) {
+    return dataService
+      .getOneItem(req.params.itemId)
+      .then((data) => res.send(data))
+      .catch((err) => res.status(500).json(err));
+  });
+
+  router.put("/update/:itemId", function (req, res) {
+    return dataService
+      .updateInventory(req.params.itemId, req.body, imgurURL)
+      .then(() => res.status(200).json("updated"))
+      .catch((err) => res.status(500).json(err));
+  });
+
+  //Delete data
+  router.delete("/delProduct/:itemId", function (req, res) {
+    return dataService
+      .delInventory(req.params.itemId)
+      .then(() => res.status(200).json("deleted"))
+      .catch((err) => res.status(500).json(err));
+  });
+
+  // Update event
+  router.post("/uploadEvent/:userId", function (req, res) {
+    return dataService
+      .insertEvent(req.params.userId, req.body, imgurURL) //USERID
       .then(() => console.log("uploaded data"))
       .catch((err) => res.status(500).json(err));
   });
 
-  router.post("/uploadEvent", function (req, res) {
+  //Update user
+  var pw, after;
+  router.get("/user/:userId", function (req, res) {
     return dataService
-      .insertEvent(req.body, imgurURL) //USERID
-      .then(() => console.log("uploaded data"))
+      .getUser(req.params.userId)
+      .then((data) => res.send(data))
       .catch((err) => res.status(500).json(err));
   });
 
+  router.post("/password", function (req, res) {
+    pw = Object.keys(req.body);
+    bcrypt.hash(pw[0], 10, function (err, hash) {
+      after = hash;
+    });
+    res.end();
+  });
+
+  router.put("/updateUser/:userId", function (req, res) {
+    console.log(after);
+    return dataService
+      .updateUser(req.params.userId, req.body, after)
+      .then(() => res.status(200).json("updated"))
+      .catch((err) => res.status(500).json(err));
+  });
   return router;
 };
