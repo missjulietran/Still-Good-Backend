@@ -3,7 +3,6 @@ const cors = require("cors");
 const fs=require('fs');
 // const knexConfig = require("./knexfile");
 // const knex = require("knex")(knexConfig.development);
-const fs = require('fs')
 
 const app = express();
 app.use(express.json());
