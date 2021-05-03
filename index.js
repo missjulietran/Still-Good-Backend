@@ -16,14 +16,6 @@ const dashboardRouter = require("./routers/DashboardRouter")(express);
 app.use("/", dataRouter);
 app.use("/", dashboardRouter);
 
-//temporary route
-app.get('/Categories',(req,res)=>{
-  fs.readFile(__dirname+'/data/sections.json',{encoding:'utf-8'},(err,data)=>{
-    let cats=JSON.parse(data)
-    res.send(cats.categories)
-  })
-})
-
 
 //temporary route
 app.get('/Categories',(req,res)=>{
