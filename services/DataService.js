@@ -94,6 +94,41 @@ module.exports = class DataService {
     });
   }
 
+  //Methods to get Sellers/Brands list
+  getSeller(){
+    return this.knex
+    .select("name")
+    .from("users")
+    .where('seller',true)
+    .then(data=>{return(data)})
+  }
+  getSellerId(name){
+    return this.knex
+    .select("id")
+    .from("users")
+    .where('name',name)
+    .then(data=>{return(data)})
+  }
+  //Method to get Products from a brand
+  getSellerProduct(seller){
+    return this.knex
+    .select(
+      "id",
+        "seller_id",
+        "category",
+        "sku",
+        "name",
+        "units",
+        "total_quantity",
+        "price",
+        "best_before_date",
+        "image"
+    )
+    .from('inventory')
+    .where("seller_id",seller)
+    .then(data=>{return data})
+  }
+
   insertInventory(userid, data, image) {
     console.log("inserting", data, image);
     return this.knex("inventory").insert({
