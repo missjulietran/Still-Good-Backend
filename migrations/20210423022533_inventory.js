@@ -3,6 +3,8 @@ exports.up = function (knex) {
     table.increments("id");
     table.integer("seller_id").unsigned();
     table.foreign("seller_id").references("users.id");
+    table.integer("event_id")
+    table.foreign("event_id").references("events.id");
     table.specificType("category", "varchar[]");
     table.varchar("sku").unique(); //changed
     table.varchar("name");

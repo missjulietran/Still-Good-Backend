@@ -72,7 +72,6 @@ module.exports = class DataService {
   }
 
   //Methoud to grab product based on SKU.
-
   getProducDetails(sku){
     return this.knex
     .select(
@@ -128,6 +127,41 @@ module.exports = class DataService {
     .where("seller_id",seller)
     .then(data=>{return data})
   }
+
+  //Events
+  getEvents(){
+    return this.knex
+    .select(
+      "id",
+      "seller_id",
+      "title",
+      "image",
+      "start_date",
+      "end_date"
+    )
+    .from("events")
+    .then(data=>{return data})
+  }
+  getEventProducts(event){
+    return this.knex
+    .select(
+      "id",
+        "seller_id",
+        "event_id",
+        "category",
+        "sku",
+        "name",
+        "units",
+        "total_quantity",
+        "price",
+        "best_before_date",
+        "image"
+    )
+    .from("inventory")
+    .where('event_id',event) 
+    .then(data=>{return data})
+  }
+
 
   insertInventory(userid, data, image) {
     console.log("inserting", data, image);
