@@ -54,6 +54,18 @@ module.exports = (express) => {
     return dataService.getProducDetails(sku)
     .then(data=>res.send(data))
   })
+  //Route for brands page
+  router.get("/brands", (req,res)=>{
+    return dataService.getSeller()
+    .then(data=>res.send(data))
+  })
+    //Route for brands product page
+    router.get("/brands/:brand", (req,res)=>{
+      return dataService.getSellerId(req.params.brand)
+      .then(seller=>{return dataService.getSellerProduct(seller[0].id)})
+      .then(data=>res.send(data))
+    })
+
   router.post("/uploadImage", upload.single("file"), async function (req, res) {
     // console.log("Upload image route");
     const encode_image = req.file.buffer.toString("base64");
