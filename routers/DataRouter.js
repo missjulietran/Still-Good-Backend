@@ -66,6 +66,17 @@ module.exports = (express) => {
       .then(data=>res.send(data))
     })
 
+    //Events Routes
+    router.get("/events", (req,res)=>{
+        return dataService.getEvents()
+        .then(data=>res.send(data))
+    })
+    router.get("/events/:id",(req,res)=>{
+      console.log(req.params.id)
+      return dataService.getEventProducts(req.params.id)
+      .then(data=>res.send(data))
+    })
+
   router.post("/uploadImage", upload.single("file"), async function (req, res) {
     // console.log("Upload image route");
     const encode_image = req.file.buffer.toString("base64");

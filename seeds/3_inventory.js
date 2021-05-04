@@ -8,6 +8,7 @@ exports.seed = function (knex) {
         //Lush Product (5 Total)
         {
           seller_id: 1,
+          event_id:1,
           name: "Soap",
           category: ["Bath & Body", "Skincare"],
           sku: "lush1",
@@ -20,6 +21,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 1,
+          event_id:1,
           name: "Body Scrub",
           category: ["Bath & Body", "Skincare"],
           sku: "lush2",
@@ -32,6 +34,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 1,
+          event_id:null,
           name: "Shampoo",
           category: ["Bath & Body", "Hair Care"],
           sku: "lush3",
@@ -43,7 +46,8 @@ exports.seed = function (knex) {
           descriptions: "Shampoo not from Lush",
         },
         {
-          seller_id: 2,
+          seller_id: 1,
+          event_id:1,
           name: "Tinted Lip Balm",
           category: ["Makeup", "Skincare"],
           sku: "lush4",
@@ -56,6 +60,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 1,
+          event_id:null,
           name: "SomethingLush",
           category: ["Bath & Body", "Skincare"],
           sku: "lush5",
@@ -69,6 +74,7 @@ exports.seed = function (knex) {
         //Pringles Product (5 total)
         {
           seller_id: 2,
+          event_id:null,
           name: "Sweet & Source Pork",
           category: ["Snacks", "Asian","Western"],
           sku: "Pringles1",
@@ -81,6 +87,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 2,
+          event_id:null,
           name: "Kimchi Beef",
           category: ["Snacks", "Asian","Western"],
           sku: "Pringles2",
@@ -93,6 +100,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 2,
+          event_id:null,
           name: "BBQ Ribs",
           category: ["Snacks","Western"],
           sku: "Pringles3",
@@ -105,6 +113,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 2,
+          event_id:null,
           name: "Sour Cream",
           category: ["Snacks","Western"],
           sku: "Pringles4",
@@ -117,6 +126,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 2,
+          event_id:null,
           name: "Jalapeno",
           category: ["Snacks","Western"],
           sku: "Pringles5",
@@ -130,6 +140,7 @@ exports.seed = function (knex) {
         //Always Products
         {
           seller_id: 3,
+          event_id:null,
           name: "Tampon A",
           category: ["Feminine Care"],
           sku: "Always1",
@@ -142,6 +153,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 3,
+          event_id:null,
           name: "Tampon B",
           category: ["Feminine Care"],
           sku: "Always2",
@@ -154,6 +166,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 3,
+          event_id:null,
           name: "Tampon C",
           category: ["Feminine Care"],
           sku: "Always3",
@@ -166,6 +179,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 3,
+          event_id:null,
           name: "Tampon D",
           category: ["Feminine Care"],
           sku: "Always4",
@@ -178,6 +192,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 3,
+          event_id:null,
           name: "Tampon E",
           category: ["Feminine Care"],
           sku: "Always5",
@@ -191,6 +206,7 @@ exports.seed = function (knex) {
         //Pocari Products (5)
         {
           seller_id: 4,
+          event_id:null,
           name: "notPocari Sweat",
           category: ["Ready-To-Drink Beverages", "Asian"],
           sku: "Pocari1",
@@ -203,6 +219,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 4,
+          event_id:null,
           name: "notPocari Sweet",
           category: ["Ready-To-Drink Beverages", "Asian"],
           sku: "Pocari2",
@@ -215,6 +232,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 4,
+          event_id:null,
           name: "notPocari Swoot",
           category: ["Ready-To-Drink Beverages", "Asian"],
           sku: "Pocari3",
@@ -227,6 +245,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 4,
+          event_id:null,
           name: "notPocari Swuut",
           category: ["Ready-To-Drink Beverages", "Asian"],
           sku: "Pocari4",
@@ -239,6 +258,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 4,
+          event_id:null,
           name: "notPocari Swaat",
           category: ["Ready-To-Drink Beverages","Asian"],
           sku: "Pocari5",
@@ -252,6 +272,7 @@ exports.seed = function (knex) {
         //Kelloggs (5)
         {
           seller_id: 5,
+          event_id:null,
           name: "notFrosties",
           category: ["Cereal","Packaged Meals","Western"],
           sku: "Kelloggs1",
@@ -264,6 +285,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 5,
+          event_id:null,
           name: "notCocoaPuffs",
           category: ["Cereal","Packaged Meals","Western"],
           sku: "Kelloggs2",
@@ -276,6 +298,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 5,
+          event_id:null,
           name: "notFruitLoops",
           category: ["Cereal","Packaged Meals","Western"],
           sku: "Kelloggs3",
@@ -288,6 +311,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 5,
+          event_id:null,
           name: "notQuaker Oats",
           category: ["Cereal","Packaged Meals","Western"],
           sku: "Kelloggs4",
@@ -300,6 +324,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 5,
+          event_id:null,
           name: "notWeetabix",
           category: ["Cereal","Packaged Meals","Western"],
           sku: "Kelloggs5",
