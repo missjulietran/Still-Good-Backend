@@ -10,13 +10,10 @@ module.exports = class LoginService {
       .andWhere("seller", true);
   }
 
-  getBuyer(buyerid) {
+  getBuyer(email) {
     return this.knex("users")
       .select("id", "email", "password")
-      .where("id", buyerid)
-      .andWhere("buyer", true)
-      .then((data) => {
-        return data;
-      });
+      .where("email", email)
+      .andWhere("buyer", true);
   }
 };
