@@ -24,7 +24,7 @@ const auth = require("./auth")(knex);
 app.use(auth.initialize());
 
 app.use("/login", loginRouter);
-app.use("/", auth.authenticate(), dataRouter);
+app.use("/data", auth.authenticate(), dataRouter);
 app.use("/dashboard", auth.authenticate(), dashboardRouter);
 
 //temporary route

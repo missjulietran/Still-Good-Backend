@@ -3,7 +3,7 @@ module.exports = class SignUpService {
     this.knex = knex;
   }
 
-SignUpForm(data, files) {
+SignUpForm(data, files, pw) {
   console.log("inserting", data);
   console.log(data.buyer)
 return this.knex("users").insert({
@@ -15,7 +15,7 @@ return this.knex("users").insert({
   name: data.name,
   phone_no: data.phone_no,
   email: data.email,
-  password: data.password,
+  password: pw,
   certfile: files.certFile,
   businesscert: files.businessCert,
 })
