@@ -162,6 +162,17 @@ module.exports = class DataService {
     .then(data=>{return data})
   }
 
+  getEventSeller(id){
+    return this.knex
+    .select(
+      "name"
+    )
+    .from("users")
+    .join("events","users.id","events.seller_id")
+    .where("events.id",id)
+    .then(data=>{return data})
+  }
+
 
   insertInventory(userid, data, image) {
     console.log("inserting", data, image);

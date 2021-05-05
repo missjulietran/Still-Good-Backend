@@ -76,7 +76,13 @@ module.exports = (express) => {
       return dataService.getEventProducts(req.params.id)
       .then(data=>res.send(data))
     })
+    router.get("/eventsellername/:id",(req,res)=>{
+      let id= req.params.id;
+      return dataService.getEventSeller(id)
+      .then(data=>res.send(data))
+    })
 
+    ////////////
   router.post("/uploadImage", upload.single("file"), async function (req, res) {
     // console.log("Upload image route");
     const encode_image = req.file.buffer.toString("base64");
