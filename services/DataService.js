@@ -50,7 +50,7 @@ module.exports = class DataService {
   }
 
   insertInventory(userid, data, image) {
-    console.log("inserting", data, image);
+    console.log("inserting", userid, data, image);
     return this.knex("inventory").insert({
       seller_id: userid,
       name: data.name,

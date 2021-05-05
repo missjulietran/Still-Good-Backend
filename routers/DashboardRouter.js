@@ -11,12 +11,12 @@ module.exports = (express) => {
   const DataService = require("../services/DataService");
   const dataService = new DataService(knex);
 
-  router.route("/dashboard/:userId").get(dashboardData);
+  router.route("/").get(dashboardData);
 
   function dashboardData(req, res) {
     function getUserLength() {
       return dashboardService
-        .getUsersLength()
+        .getUsersLength(req.user.id)
         .then((data) => {
           return data.length;
         })
@@ -24,8 +24,9 @@ module.exports = (express) => {
     }
 
     function getStockQuantity() {
+      console.log(req.headers);
       return dashboardService
-        .getTotalStock(req.params.userId)
+        .getTotalStock(req.user.id)
         .then((data) => {
           let sum = 0;
           data.map((x) => (sum += x.total_quantity));
@@ -39,7 +40,7 @@ module.exports = (express) => {
       let revenue = 0;
 
       return dashboardService
-        .getSold(req.params.userId)
+        .getSold(req.user.id)
         .then((data) => {
           data.map((order) => {
             sold += order.quantity;
@@ -55,7 +56,7 @@ module.exports = (express) => {
       let itemCount = {};
       let topItem = { value: 0, key: undefined };
       return dashboardService
-        .getSold(req.params.userId)
+        .getSold(req.user.id)
         .then((data) => {
           data.forEach((order) => {
             if (itemCount[order.inventory_id]) {
@@ -89,7 +90,7 @@ module.exports = (express) => {
       let count = 0;
       let lastItemId = undefined;
       return dashboardService
-        .getOrderAmount(req.params.userId)
+        .getOrderAmount(req.user.id)
         .then((data) => {
           data.forEach((item) => {
             if (item.id !== lastItemId) {
