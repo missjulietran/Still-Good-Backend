@@ -15,6 +15,38 @@ module.exports = (express) => {
   const LoginService = require("../services/LoginService");
   const loginService = new LoginService(knex);
 
+  router.post("/buyer", async function (req, res) {
+    console.log("buyer login route");
+
+    if (req.body.email && req.body.password) {
+      var email = req.body.email;
+      var password = req.body.password;
+      const passwordDB = await loginService.getBuyer(email);
+      console.log(email, passwordDB);
+      console.log(passwordDB);
+      bcrypt.compare(password, passwordDB[0].password, function (err, result) {
+        console.log("result", result);
+        if (result) {
+          var payload = {
+            id: passwordDB[0].id,
+          };
+          var token = jwt.sign(payload, config.jwtSecret);
+          console.log("payload", payload);
+          console.log("token", token);
+          res.json({
+            token: token,
+          });
+        } else {
+          console.log("failed1");
+          res.sendStatus(401);
+        }
+      });
+    } else {
+      console.log("failed2");
+      res.sendStatus(401);
+    }
+  });
+
   router.post("/seller", async function (req, res) {
     console.log("seller login route");
     if (req.body.email) {
@@ -23,45 +55,49 @@ module.exports = (express) => {
       const passwordDB = await loginService.getSeller(email);
       console.log(email, passwordDB);
 
-      if (passwordDB) {
-        var payload = {
-          id: passwordDB[0].id,
-        };
-        var token = jwt.sign(payload, config.jwtSecret);
-        console.log("payload", payload);
-        console.log("token", token);
-        res.json({
-          token: token,
-        });
-      }
-      // if (req.body.email && req.body.password) {
-      //   var email = req.body.email;
-      //   var password = req.body.password;
-      //   const passwordDB = await loginService.getSeller(email);
-      //   console.log(email, passwordDB);
-      //   console.log(passwordDB);
-      //   bcrypt.compare(password, passwordDB[0].password, function (err, result) {
-      //     console.log("result", result);
-      //     if (result) {
-      //       var payload = {
-      //         id: passwordDB[0].id,
-      //       };
-      //       var token = jwt.sign(payload, config.jwtSecret);
-      //       console.log("payload", payload);
-      //       console.log("token", token);
-      //       res.json({
-      //         token: token,
-      //       });
-      //     } else {
-      //       console.log("failed1");
-      //       res.sendStatus(401);
-      //     }
+      // if (passwordDB) {
+      //   var payload = {
+      //     id: passwordDB[0].id,
+      //   };
+      //   var token = jwt.sign(payload, config.jwtSecret);
+      //   console.log("payload", payload);
+      //   console.log("token", token);
+      //   res.json({
+      //     token: token,
       //   });
-    } else {
-      console.log("failed2");
-      res.sendStatus(401);
+      // }
+      if (req.body.email && req.body.password) {
+        var email = req.body.email;
+        var password = req.body.password;
+        const passwordDB = await loginService.getSeller(email);
+        console.log(email, passwordDB);
+        console.log(passwordDB);
+        bcrypt.compare(
+          password,
+          passwordDB[0].password,
+          function (err, result) {
+            console.log("result", result);
+            if (result) {
+              var payload = {
+                id: passwordDB[0].id,
+              };
+              var token = jwt.sign(payload, config.jwtSecret);
+              console.log("payload", payload);
+              console.log("token", token);
+              res.json({
+                token: token,
+              });
+            } else {
+              console.log("failed1");
+              res.sendStatus(401);
+            }
+          }
+        );
+      } else {
+        console.log("failed2");
+        res.sendStatus(401);
+      }
     }
   });
-
   return router;
 };

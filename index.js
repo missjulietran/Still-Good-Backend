@@ -16,14 +16,16 @@ app.use(cors());
 const dataRouter = require("./routers/DataRouter")(express);
 const dashboardRouter = require("./routers/DashboardRouter")(express);
 const loginRouter = require("./routers/LoginRouter")(express);
+const buyerRouter = require("./routers/BuyerRouter")(express);
 
 // Routers
 const auth = require("./auth")(knex);
 app.use(auth.initialize());
 
 app.use("/login", loginRouter);
-app.use("/", auth.authenticate(), dataRouter);
+app.use("/data", auth.authenticate(), dataRouter);
 app.use("/dashboard", auth.authenticate(), dashboardRouter);
+app.use("/buyerDashboard", auth.authenticate(), buyerRouter);
 
 //temporary route
 app.get("/Categories", (req, res) => {
