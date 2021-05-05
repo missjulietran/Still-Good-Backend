@@ -80,6 +80,7 @@ module.exports = (express) => {
   });
 
   ////////////
+
   router.post("/uploadImage", upload.single("file"), async function (req, res) {
     console.log("Upload image route");
 
