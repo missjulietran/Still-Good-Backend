@@ -37,8 +37,52 @@ module.exports = (express) => {
       .catch((err) => res.status(500).json(err));
   });
 
+  //Route for listing of products for a certain category
+  router.get("/category/:products", (req, res) => {
+    let cat = req.params.products;
+    return dataService.getCategoryProducts(cat).then((data) => {
+      res.send(data);
+    });
+  });
+
+  //Route for product detail page
+  router.get("/productpage/:sku", (req, res) => {
+    let sku = req.params.sku;
+    return dataService.getProducDetails(sku).then((data) => res.send(data));
+  });
+  //Route for brands page
+  router.get("/brands", (req, res) => {
+    return dataService.getSeller().then((data) => res.send(data));
+  });
+  //Route for brands product page
+  router.get("/brands/:brand", (req, res) => {
+    return dataService
+      .getSellerId(req.params.brand)
+      .then((seller) => {
+        return dataService.getSellerProduct(seller[0].id);
+      })
+      .then((data) => res.send(data));
+  });
+
+  //Events Routes
+  router.get("/events", (req, res) => {
+    return dataService.getEvents().then((data) => res.send(data));
+  });
+  router.get("/events/:id", (req, res) => {
+    console.log(req.params.id);
+    return dataService
+      .getEventProducts(req.params.id)
+      .then((data) => res.send(data));
+  });
+  router.get("/eventsellername/:id", (req, res) => {
+    let id = req.params.id;
+    return dataService.getEventSeller(id).then((data) => res.send(data));
+  });
+
+  ////////////
   router.post("/uploadImage", upload.single("file"), async function (req, res) {
     console.log("Upload image route");
+
     const encode_image = req.file.buffer.toString("base64");
     var options = {
       method: "POST",
