@@ -5,8 +5,7 @@ module.exports = (express) => {
   const multer = require("multer");
   const bcrypt = require("bcrypt");
   var rp = require("request-promise");
-  //   const fs = require("fs");
-  //   const axios = require("axios");
+
   require("dotenv").config();
 
   // Knex Setup
@@ -29,9 +28,9 @@ module.exports = (express) => {
   });
   var imgurURL;
 
-  router.get("/getInventoryData/:userId", function (req, res) {
+  router.get("/getInventoryData", function (req, res) {
     return dataService
-      .getInventoryData(req.params.userId)
+      .getInventoryData(req.user.id)
       .then((data) => {
         res.send(data);
       })
@@ -39,52 +38,52 @@ module.exports = (express) => {
   });
 
   //Route for listing of products for a certain category
-  router.get("/category/:products", (req,res)=>{
-    let cat=req.params.products;
-    return dataService
-    .getCategoryProducts(cat)
-    .then((data)=>{
+  router.get("/category/:products", (req, res) => {
+    let cat = req.params.products;
+    return dataService.getCategoryProducts(cat).then((data) => {
       res.send(data);
-    })
-  })
+    });
+  });
 
   //Route for product detail page
-  router.get("/productpage/:sku", (req,res)=>{
-    let sku=req.params.sku;
-    return dataService.getProducDetails(sku)
-    .then(data=>res.send(data))
-  })
+  router.get("/productpage/:sku", (req, res) => {
+    let sku = req.params.sku;
+    return dataService.getProducDetails(sku).then((data) => res.send(data));
+  });
   //Route for brands page
-  router.get("/brands", (req,res)=>{
-    return dataService.getSeller()
-    .then(data=>res.send(data))
-  })
-    //Route for brands product page
-    router.get("/brands/:brand", (req,res)=>{
-      return dataService.getSellerId(req.params.brand)
-      .then(seller=>{return dataService.getSellerProduct(seller[0].id)})
-      .then(data=>res.send(data))
-    })
+  router.get("/brands", (req, res) => {
+    return dataService.getSeller().then((data) => res.send(data));
+  });
+  //Route for brands product page
+  router.get("/brands/:brand", (req, res) => {
+    return dataService
+      .getSellerId(req.params.brand)
+      .then((seller) => {
+        return dataService.getSellerProduct(seller[0].id);
+      })
+      .then((data) => res.send(data));
+  });
 
-    //Events Routes
-    router.get("/events", (req,res)=>{
-        return dataService.getEvents()
-        .then(data=>res.send(data))
-    })
-    router.get("/events/:id",(req,res)=>{
-      console.log(req.params.id)
-      return dataService.getEventProducts(req.params.id)
-      .then(data=>res.send(data))
-    })
-    router.get("/eventsellername/:id",(req,res)=>{
-      let id= req.params.id;
-      return dataService.getEventSeller(id)
-      .then(data=>res.send(data))
-    })
+  //Events Routes
+  router.get("/events", (req, res) => {
+    return dataService.getEvents().then((data) => res.send(data));
+  });
+  router.get("/events/:id", (req, res) => {
+    console.log(req.params.id);
+    return dataService
+      .getEventProducts(req.params.id)
+      .then((data) => res.send(data));
+  });
+  router.get("/eventsellername/:id", (req, res) => {
+    let id = req.params.id;
+    return dataService.getEventSeller(id).then((data) => res.send(data));
+  });
 
-    ////////////
+  ////////////
+
   router.post("/uploadImage", upload.single("file"), async function (req, res) {
-    // console.log("Upload image route");
+    console.log("Upload image route");
+
     const encode_image = req.file.buffer.toString("base64");
     var options = {
       method: "POST",
@@ -101,16 +100,20 @@ module.exports = (express) => {
       if (error) throw new Error(error);
       var imageURL = response.body;
       imgurURL = JSON.parse(imageURL).data.link;
-      // console.log(imgurURL);
+      console.log(imgurURL);
     });
-    res.json("uploadimg");
+    // res.json("uploadimg");
+    res.end();
   });
 
   //Uploda data
-  router.post("/upload/:userId", function (req, res) {
+  router.post("/upload", function (req, res) {
     return dataService
-      .insertInventory(req.params.userId, req.body, imgurURL)
-      .then(() => res.status(200).json("updated"))
+      .insertInventory(req.user.id, req.body, imgurURL)
+      .then(() => {
+        console.log("uploaded inventory");
+        res.status(200).json("updated");
+      })
       .catch((err) => res.status(500).json(err));
   });
 
@@ -138,34 +141,35 @@ module.exports = (express) => {
   });
 
   // Update event
-  router.post("/uploadEvent/:userId", function (req, res) {
+  router.post("/uploadEvent", function (req, res) {
     return dataService
-      .insertEvent(req.params.userId, req.body, imgurURL) //USERID
+      .insertEvent(req.user.id, req.body, imgurURL) //USERID
       .then(() => console.log("uploaded data"))
       .catch((err) => res.status(500).json(err));
   });
 
   //Update user
   var pw, after;
-  router.get("/user/:userId", function (req, res) {
+  router.get("/user", function (req, res) {
     return dataService
-      .getUser(req.params.userId)
+      .getUser(req.user.id)
       .then((data) => res.send(data))
       .catch((err) => res.status(500).json(err));
   });
 
   router.post("/password", function (req, res) {
     pw = Object.keys(req.body);
-    bcrypt.hash(pw[0], 10, function (err, hash) {
+
+    bcrypt.hash(pw[0], 5, function (err, hash) {
       after = hash;
     });
     res.end();
   });
 
-  router.put("/updateUser/:userId", function (req, res) {
+  router.put("/updateUser", function (req, res) {
     console.log(after);
     return dataService
-      .updateUser(req.params.userId, req.body, after)
+      .updateUser(req.user.id, req.body, after)
       .then(() => res.status(200).json("updated"))
       .catch((err) => res.status(500).json(err));
   });

@@ -14,3 +14,7 @@ exports.up = function (knex) {
 exports.down = function (knex) {
   return knex.schema.dropTable("events");
 };
+
+// 20210423024756_events.js
+
+// 20210423022532_events.js
