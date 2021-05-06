@@ -47,7 +47,15 @@ exports.seed = function (knex) {
           district: "Tsuen Wan",
           phone_no: 123456789,
         },
-        { buyer: true, email: "test3@test.com" },
+        {
+          buyer: true,
+          email: "test3@test.com",
+          password:
+            "$2b$05$bNXEaWJovE9O.6GQQpT39ecgN8y5YwoK342sDbFjnQGXTZgQjCq4W",
+          address: "The Point",
+          district: "Yau Tsim Mong",
+          phone_no: 123456789,
+        },
         { buyer: true, email: "test4@test.com" },
       ]);
     });

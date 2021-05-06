@@ -3,8 +3,9 @@ exports.up = function (knex) {
     table.increments("id");
     table.integer("buyer_id").unsigned();
     table.foreign("buyer_id").references("users.id");
-    table.boolean("shipped");
+    table.string("shipped");
     table.boolean("email_sent");
+    table.timestamps(true, true);
   });
 };
 
