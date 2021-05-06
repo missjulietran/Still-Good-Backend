@@ -25,14 +25,12 @@ module.exports = (express) => {
       console.log(email, passwordDB);
       console.log(passwordDB);
       bcrypt.compare(password, passwordDB[0].password, function (err, result) {
-        console.log("result", result);
         if (result) {
           var payload = {
             id: passwordDB[0].id,
           };
           var token = jwt.sign(payload, config.jwtSecret);
-          console.log("payload", payload);
-          console.log("token", token);
+
           res.json({
             token: token,
           });

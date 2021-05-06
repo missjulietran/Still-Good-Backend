@@ -15,6 +15,16 @@ module.exports = (express) => {
   const DataService = require("../services/DataService");
   const dataService = new DataService(knex);
 
+  //Get inventory
+  router.get("/getInventoryData", function (req, res) {
+    return dataService
+      .getInventoryData(req.user.id)
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => res.status(500).json(err));
+  });
+
   //   Upload Image
   var upload = multer({
     fileFilter: (req, file, cb) => {
@@ -28,39 +38,33 @@ module.exports = (express) => {
   });
   var imgurURL;
 
-  router.get("/getInventoryData", function (req, res) {
-    return dataService
-      .getInventoryData(req.user.id)
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => res.status(500).json(err));
-  });
-
-
   router.post("/uploadImage", upload.single("file"), async function (req, res) {
     console.log("Upload image route");
 
-    const encode_image = req.file.buffer.toString("base64");
-    var options = {
-      method: "POST",
-      url: "https://api.imgur.com/3/image",
-      headers: {
-        Authorization: `Client-ID ${process.env.CLIENT_ID}`,
-      },
-      formData: {
-        image: encode_image,
-      },
-    };
+    try {
+      const encode_image = req.files.file.data.toString("base64");
+      var options = {
+        method: "POST",
+        url: "https://api.imgur.com/3/image",
+        headers: {
+          Authorization: `Client-ID ${process.env.CLIENT_ID}`,
+        },
+        formData: {
+          image: encode_image,
+        },
+      };
 
-    await rp(options, function (error, response) {
-      if (error) throw new Error(error);
-      var imageURL = response.body;
-      imgurURL = JSON.parse(imageURL).data.link;
-      console.log(imgurURL);
-    });
-    // res.json("uploadimg");
-    res.end();
+      await rp(options, function (error, response) {
+        if (error) throw new Error(error);
+        var imageURL = response.body;
+        imgurURL = JSON.parse(imageURL).data.link;
+        console.log(imgurURL);
+      });
+      // res.json("uploadimg");
+      res.end();
+    } catch (err) {
+      console.log(err);
+    }
   });
 
   //Uploda data
