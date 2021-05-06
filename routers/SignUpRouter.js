@@ -1,39 +1,41 @@
 "use strict";
 
 module.exports = (express) => {
-    const router = express.Router();
+  const router = express.Router();
+  // Bcrypt
+  const bcrypt = require("bcrypt");
+  // Knex
+  const knexConfig = require("../knexfile").development;
+  const knex = require("knex")(knexConfig);
+  // Services
+  const SignUpService = require("../services/SignUpService");
+  const signupService = new SignUpService(knex);
 
-    const bcrypt = require("bcrypt");
-    
-    const fileUpload = require("express-fileupload");
-    router.use(fileUpload())
-    require("dotenv").config();
+  // doenv
+  require("dotenv").config();
 
-    const knexConfig = require("../knexfile").development;
-    const knex = require("knex")(knexConfig);
+  // ------  Sign up post request ------ //
+  router.post("/signup", function (req, res) {
+    console.log("signup", req.body);
+    // console.log(req.files);
+    // console.log(req.body.password);
+    // console.log(req.body.address)
+    var after;
 
-    const SignUpService = require("../services/SignUpService");
-    const signupService = new SignUpService(knex);
-    
-    // router.route("/signup").get(signupData);
-
-    // Sign up data 
-    router.post('/signup', function (req, res) {
-        console.log("signup",req.body)
-        console.log(req.files)
-        console.log(req.body.password)
-        var after
-
-        bcrypt.hash(req.body.password, 5, function (err, hash) {
-          after = hash;
-        });
-        console.log("bcrypt", after)
-        //let data= JSON.stringify(req.body);
-        //data=JSON.parse(data);
-        //console.log(data.businessName)
-        return signupService
-        .SignUpForm(req.body, req.files, after).then(()=>{console.log('success'); res.send('done')})
-        .catch((err) => res.status(500).json(err));
-    })
-    return router
+    bcrypt.hash(req.body.password, 5, function (err, hash) {
+      after = hash;
+    });
+    console.log("bcrypt", after);
+    return signupService
+      .SignUpForm(req.body, req.files, after)
+      .then(() => {
+        console.log("success");
+        res.send("done");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+  return router;
 };
