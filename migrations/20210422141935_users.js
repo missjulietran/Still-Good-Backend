@@ -6,9 +6,11 @@ exports.up = function (knex) {
     table.varchar("name");
     table.varchar("email");
     table.varchar("password");
-    table.string("tier");
     table.text("address");
     table.string("district");
+    table.binary("businesscert");
+    table.binary("certfile")
+    table.string("businessname")
     table.integer("phone_no");
     table.timestamps(true, true);
   });
