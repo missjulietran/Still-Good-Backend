@@ -5,6 +5,7 @@ module.exports = (express) => {
   const multer = require("multer");
   const bcrypt = require("bcrypt");
   var rp = require("request-promise");
+  const fs = require("fs");
 
   require("dotenv").config();
 
@@ -39,8 +40,6 @@ module.exports = (express) => {
   var imgurURL;
 
   router.post("/uploadImage", upload.single("file"), async function (req, res) {
-    console.log("Upload image route");
-
     try {
       const encode_image = req.files.file.data.toString("base64");
       var options = {
@@ -72,7 +71,6 @@ module.exports = (express) => {
     return dataService
       .insertInventory(req.user.id, req.body, imgurURL)
       .then(() => {
-        console.log("uploaded inventory");
         res.status(200).json("updated");
       })
       .catch((err) => res.status(500).json(err));
@@ -128,11 +126,27 @@ module.exports = (express) => {
   });
 
   router.put("/updateUser", function (req, res) {
-    console.log(after);
     return dataService
       .updateUser(req.user.id, req.body, after)
       .then(() => res.status(200).json("updated"))
       .catch((err) => res.status(500).json(err));
   });
+
+  // router.get("/file", function (req, res) {
+  //   console.log("getting files");
+  //   return dataService
+  //     .getCert(req.user.id)
+  //     .then((data) => {
+  //       var buffer = Buffer.from(data[0].certfile);
+  //       // console.log(buffer);
+  //       res.download(buffer);
+  //       // const test = data[0].toString("utf-8");
+  //       // const read = data[0].certfile.toString("utf-8");
+  //       // // res.download(read);
+
+  //       // res.send(read);
+  //     })
+  //     .catch((err) => console.log(err));
+  // });
   return router;
 };
