@@ -15,6 +15,7 @@ const dataRouter = require("./routers/DataRouter")(express);
 const dashboardRouter = require("./routers/DashboardRouter")(express);
 const loginRouter = require("./routers/LoginRouter")(express);
 const buyerRouter = require("./routers/BuyerRouter")(express);
+
 const listingRouter = require("./routers/ListingRouter")(express);
 const signUpRouter = require("./routers/SignUpRouter")(express);
 
@@ -25,6 +26,7 @@ app.use(auth.initialize());
 app.use("/", signUpRouter);
 app.use("/login", loginRouter);
 app.use("/", listingRouter);
+
 app.use("/data", auth.authenticate(), dataRouter);
 app.use("/dashboard", auth.authenticate(), dashboardRouter);
 app.use("/buyerDashboard", auth.authenticate(), buyerRouter);
