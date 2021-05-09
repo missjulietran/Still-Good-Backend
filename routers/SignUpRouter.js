@@ -18,6 +18,12 @@ module.exports = (express) => {
 
   // ------  Sign up post request ------ //
   router.post("/signup", function (req, res) {
+
+    console.log("signup", req.body);
+    console.log("files:", req.files);
+    // console.log(req.body.password);
+    // console.log(req.body.address)
+
     var after;
 
     bcrypt.hash(req.body.password, 5, function (err, hash) {

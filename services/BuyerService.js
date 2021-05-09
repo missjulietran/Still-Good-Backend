@@ -47,7 +47,7 @@ module.exports = class BuyerService {
       .catch((err) => console.log(err));
   }
 
-  updateBuyerData(buyerid, data, pw) {
+  updateBuyerData(buyerid, data, files, pw) {
     let userValue = Object.values(data);
     let userKey = Object.keys(data);
     let user = {
@@ -57,6 +57,9 @@ module.exports = class BuyerService {
       address: data.address,
       district: data.district,
       phone_no: data.phone_no,
+      businesscert: files.businesscert,
+    certfile: files.certfile,
+    businessname: data.businessname,
     };
     for (let i = 0; i < userValue.length; i++) {
       if (userValue[i] == "") {
