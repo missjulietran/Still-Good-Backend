@@ -11,14 +11,13 @@ module.exports = (express) => {
   const SignUpService = require("../services/SignUpService");
   const signupService = new SignUpService(knex);
 
-  const Blob = require("cross-blob");
+  // const Blob = require("cross-blob");
 
   // doenv
   require("dotenv").config();
 
   // ------  Sign up post request ------ //
   router.post("/signup", function (req, res) {
-
     console.log("signup", req.body);
     console.log("files:", req.files);
     // console.log(req.body.password);
