@@ -11,12 +11,10 @@ module.exports = (knex) => {
     },
     async (payload, done) => {
       const user = await knex("users").where({ id: payload.id });
-      // console.log("user", user);
+
       if (user[0]) {
-        // console.log("user[0] exist");
         return done(null, { id: user[0].id });
       } else {
-        // console.log("user[0] not exist");
         return done(new Error("User not found"), null);
       }
     }
@@ -28,7 +26,6 @@ module.exports = (knex) => {
       return passport.initialize();
     },
     authenticate: function () {
-      console.log("jwt", config.jwtSession);
       return passport.authenticate("jwt", config.jwtSession);
     },
   };

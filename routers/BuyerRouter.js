@@ -12,6 +12,16 @@ module.exports = (express) => {
   const buyerService = new BuyerService(knex);
 
   router.route("/").get(buyerData).put(updateBuyer);
+  router.route("/:itemId").get(orderDetail);
+
+  function orderDetail(req, res) {
+    return buyerService
+      .getOrderDetails(req.params.itemId)
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => console.log(err));
+  }
 
   function buyerData(req, res) {
     function getUser() {
@@ -39,7 +49,6 @@ module.exports = (express) => {
       return buyerService
         .getRecentOrderId(req.user.id)
         .then((data) => {
-          console.log(data);
           let orderId = data[0].id;
 
           return buyerService

@@ -24,7 +24,6 @@ module.exports = (express) => {
     }
 
     function getStockQuantity() {
-      console.log(req.headers);
       return dashboardService
         .getTotalStock(req.user.id)
         .then((data) => {

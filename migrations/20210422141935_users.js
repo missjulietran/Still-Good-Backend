@@ -9,8 +9,8 @@ exports.up = function (knex) {
     table.text("address");
     table.string("district");
     table.binary("businesscert");
-    table.binary("certfile")
-    table.string("businessname")
+    table.binary("certfile");
+    table.string("businessname");
     table.integer("phone_no");
     table.timestamps(true, true);
   });

@@ -49,7 +49,6 @@ module.exports = class DataService {
       });
   }
 
-  
   insertInventory(userid, data, image) {
     console.log("inserting", userid, data, image);
     return this.knex("inventory").insert({
@@ -156,4 +155,14 @@ module.exports = class DataService {
       .then(() => console.log("updated"))
       .catch((err) => console.log(err));
   }
+
+  // getCert(userid) {
+  //   return this.knex("users")
+  //     .select("certfile")
+  //     .where("id", userid)
+  //     .then((data) => {
+  //       return data;
+  //     })
+  //     .catch((err) => console.log(err));
+  // }
 };

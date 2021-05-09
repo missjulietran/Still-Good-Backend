@@ -12,7 +12,7 @@ module.exports = class LoginService {
 
   getBuyer(email) {
     return this.knex("users")
-      .select("id", "email", "password")
+      .select("id", "buyer", "email", "password")
       .where("email", email)
       .andWhere("buyer", true);
   }
