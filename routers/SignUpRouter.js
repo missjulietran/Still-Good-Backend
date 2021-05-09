@@ -11,7 +11,7 @@ module.exports = (express) => {
   const SignUpService = require("../services/SignUpService");
   const signupService = new SignUpService(knex);
 
-  const Blob = require("cross-blob");
+  // const Blob = require("cross-blob");
 
   // doenv
   require("dotenv").config();
