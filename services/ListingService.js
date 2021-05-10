@@ -15,7 +15,8 @@ module.exports = class ListingService{
         "total_quantity",
         "price",
         "best_before_date",
-        "image"
+        "image",
+        "descriptions"
       )
       .from("inventory")
       .whereRaw('? = any (??)', [cat, 'category'])
@@ -37,7 +38,8 @@ module.exports = class ListingService{
         "total_quantity",
         "price",
         "best_before_date",
-        "image"
+        "image",
+        "descriptions"
     )
     .from("inventory")
     .where('sku',sku)
@@ -74,7 +76,8 @@ module.exports = class ListingService{
         "total_quantity",
         "price",
         "best_before_date",
-        "image"
+        "image",
+        "descriptions"
     )
     .from('inventory')
     .where("seller_id",seller)
@@ -108,7 +111,9 @@ module.exports = class ListingService{
         "total_quantity",
         "price",
         "best_before_date",
-        "image"
+        "image",
+        "descriptions"
+
     )
     .from("inventory")
     .where('event_id',event) 
