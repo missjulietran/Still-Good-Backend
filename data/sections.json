@@ -1,108 +1,103 @@
 {
-    "categories":[
-        {   
-            "id":1,
-            "name":"Western",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":2,
-            "name":"Asian",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":3,
-            "name":"Snacks",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":4,
-            "name":"Packaged Meals",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":5,
-            "name":"Seasoning",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":6,
-            "name":"Cereal",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":7,
-            "name":"Ready-To-Drink Beverages",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":8,
-            "name":"Ready-To-Drink Beverages",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":9,
-            "name":"Alcohol",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":10,
-            "name":"Skincare",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":11,
-            "name":"Makeup",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":12,
-            "name":"Bath & Body",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":13,
-            "name":"Hair Care",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":14,
-            "name":"Supplements",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        },
-        {   
-            "id":15,
-            "name":"Feminine Care",
-            "image":"https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
-        }
+  "categories": [
+    {
+      "id": 1,
+      "name": "Western",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Asian",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Snacks",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Packaged Meals",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Seasoning",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Cereal",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Ready-To-Drink Beverages",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
 
-    ],
+    {
+      "id": 8,
+      "name": "Alcohol",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Skincare",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Makeup",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Bath & Body",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Hair Care",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Supplements",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Feminine Care",
+      "image": "https://image.freepik.com/free-photo/pastel-tone-pink-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4057.jpg"
+    }
+  ],
 
-    "brands":[
-        {
-            "id":1,
-            "name":"Brand A",
-            "img":"url"
-        },
-        {
-            "id":2,
-            "name":"Brand A",
-            "img":"url"
-        },
-        {
-            "id":3,
-            "name":"Brand A",
-            "img":"url"
-        },
-        {
-            "id":4,
-            "name":"Brand A",
-            "img":"url"
-        },
-        {
-            "id":5,
-            "name":"Brand A",
-            "img":"url"
-        }
-    ]
+  "brands": [
+    {
+      "id": 1,
+      "name": "Brand A",
+      "img": "url"
+    },
+    {
+      "id": 2,
+      "name": "Brand A",
+      "img": "url"
+    },
+    {
+      "id": 3,
+      "name": "Brand A",
+      "img": "url"
+    },
+    {
+      "id": 4,
+      "name": "Brand A",
+      "img": "url"
+    },
+    {
+      "id": 5,
+      "name": "Brand A",
+      "img": "url"
+    }
+  ]
 }

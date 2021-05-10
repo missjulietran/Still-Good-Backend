@@ -132,21 +132,5 @@ module.exports = (express) => {
       .catch((err) => res.status(500).json(err));
   });
 
-  // router.get("/file", function (req, res) {
-  //   console.log("getting files");
-  //   return dataService
-  //     .getCert(req.user.id)
-  //     .then((data) => {
-  //       var buffer = Buffer.from(data[0].certfile);
-  //       // console.log(buffer);
-  //       res.download(buffer);
-  //       // const test = data[0].toString("utf-8");
-  //       // const read = data[0].certfile.toString("utf-8");
-  //       // // res.download(read);
-
-  //       // res.send(read);
-  //     })
-  //     .catch((err) => console.log(err));
-  // });
   return router;
 };

@@ -155,14 +155,4 @@ module.exports = class DataService {
       .then(() => console.log("updated"))
       .catch((err) => console.log(err));
   }
-
-  // getCert(userid) {
-  //   return this.knex("users")
-  //     .select("certfile")
-  //     .where("id", userid)
-  //     .then((data) => {
-  //       return data;
-  //     })
-  //     .catch((err) => console.log(err));
-  // }
 };
