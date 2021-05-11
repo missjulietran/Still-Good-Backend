@@ -50,7 +50,6 @@ module.exports = class DataService {
   }
 
   insertInventory(userid, data, image) {
-    console.log("inserting", userid, data, image);
     return this.knex("inventory").insert({
       seller_id: userid,
       name: data.name,
@@ -86,7 +85,7 @@ module.exports = class DataService {
         delete inventory[itemName[i]];
       }
     }
-    console.log(inventory);
+
     return this.knex("inventory")
       .where("sku", itemid)
       .update(inventory)

@@ -3,7 +3,6 @@
 module.exports = (express) => {
   const router = express.Router();
   const bcrypt = require("bcrypt");
-  const bytea = require('postgres-bytea')
 
   const knexConfig = require("../knexfile").development;
   const knex = require("knex")(knexConfig);
@@ -28,8 +27,6 @@ module.exports = (express) => {
       return buyerService
         .getBuyer(req.user.id)
         .then((data) => {
-          console.log("this object is" + new bytea.Decoder())
-          console.log("this is a new data", data)
           return data;
         })
         .catch((err) => console.log(err));

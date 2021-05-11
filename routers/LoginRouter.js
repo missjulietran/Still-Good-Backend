@@ -20,8 +20,7 @@ module.exports = (express) => {
       var email = req.body.email;
       var password = req.body.password;
       const passwordDB = await loginService.getBuyer(email);
-      // console.log(email, passwordDB);
-      // console.log(passwordDB.buyer);
+
       bcrypt.compare(password, passwordDB[0].password, function (err, result) {
         if (result) {
           var payload = {
@@ -34,12 +33,10 @@ module.exports = (express) => {
             buyer: passwordDB[0].buyer,
           });
         } else {
-          console.log("failed1");
           res.sendStatus(401);
         }
       });
     } else {
-      console.log("failed2");
       res.sendStatus(401);
     }
   });
@@ -69,13 +66,11 @@ module.exports = (express) => {
                 token: token,
               });
             } else {
-              console.log("failed1");
               res.sendStatus(401);
             }
           }
         );
       } else {
-        console.log("failed2");
         res.sendStatus(401);
       }
     }

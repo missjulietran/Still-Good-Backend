@@ -1,31 +1,31 @@
-"use strict"
+"use strict";
 
-module.exports = (express)=>{
-    const router=express.Router();
-    const fs = require("fs");
-    const path =require('path')
-    require("dotenv").config();
+module.exports = (express) => {
+  const router = express.Router();
+  const fs = require("fs");
+  const path = require("path");
+  require("dotenv").config();
 
-    //knex config
-    const knexConfig = require("../knexfile").development;
-    const knex = require("knex")(knexConfig);
+  //knex config
+  const knexConfig = require("../knexfile").development;
+  const knex = require("knex")(knexConfig);
 
-    const ListingService = require('../services/ListingService');
-    const listingService = new ListingService(knex)
+  const ListingService = require("../services/ListingService");
+  const listingService = new ListingService(knex);
 
-    //Categories page
-  router.get("/Categories", (req,res)=>{
+  //Categories page
+  router.get("/Categories", (req, res) => {
     fs.readFile(
       path.join(__dirname, "../data/sections.json"),
       { encoding: "utf-8" },
       (err, data) => {
-            let cats = JSON.parse(data);
-            res.send(cats.categories);
+        let cats = JSON.parse(data);
+        res.send(cats.categories);
       }
     );
-  })
+  });
 
-    //Route for listing of products for a certain category
+  //Route for listing of products for a certain category
   router.get("/category/:products", (req, res) => {
     let cat = req.params.products;
     return listingService.getCategoryProducts(cat).then((data) => {
@@ -57,7 +57,6 @@ module.exports = (express)=>{
     return listingService.getEvents().then((data) => res.send(data));
   });
   router.get("/events/:id", (req, res) => {
-    console.log(req.params.id);
     return listingService
       .getEventProducts(req.params.id)
       .then((data) => res.send(data));
@@ -67,4 +66,4 @@ module.exports = (express)=>{
     return listingService.getEventSeller(id).then((data) => res.send(data));
   });
   return router;
-}
+};
