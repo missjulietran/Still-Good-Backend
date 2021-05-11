@@ -57,7 +57,6 @@ module.exports = (express) => {
         if (error) throw new Error(error);
         var imageURL = response.body;
         imgurURL = JSON.parse(imageURL).data.link;
-        console.log(imgurURL);
       });
       // res.json("uploadimg");
       res.end();
@@ -103,7 +102,7 @@ module.exports = (express) => {
   router.post("/uploadEvent", function (req, res) {
     return dataService
       .insertEvent(req.user.id, req.body, imgurURL) //USERID
-      .then(() => console.log("uploaded data"))
+      .then(() => res.status(200).json("uploaded"))
       .catch((err) => res.status(500).json(err));
   });
 

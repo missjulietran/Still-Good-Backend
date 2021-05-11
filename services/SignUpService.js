@@ -5,8 +5,6 @@ module.exports = class SignUpService {
 
   // sign up form inserting data into db
   SignUpForm(data, files, pw) {
-    console.log("inserting", data);
-    console.log(data.buyer);
     return this.knex("users").insert({
       buyer: data.buyer,
       seller: data.seller,

@@ -17,7 +17,7 @@ exports.seed = function (knex) {
         },
         {
           seller: true,
-          name: "NotPringles",
+          name: "NotLays",
           email: "NotPringles@test.com",
           address: "12 Crispy Path, Mong Kok, Hong Kong",
           district: "Yau Tsim Mong",
@@ -33,7 +33,7 @@ exports.seed = function (knex) {
         },
         {
           seller: true,
-          name: "NotPocari",
+          name: "NotMabelline",
           email: "NotPocari@test.com",
           address: "Sports Street, Shaukeiwan, Hong Kong",
           district: "Eastern",
