@@ -14,7 +14,7 @@ exports.seed = function (knex) {
           sku: "lush1",
           units: 100,
           total_quantity: 10000,
-          price: 2,
+          price: 20,
           image:
             "https://res.cloudinary.com/lush/image/upload/s--jazyHcW---/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2020/06/web_sea_vegetable_soap_2020.jpg?itok=MhkYhdPe",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -28,7 +28,7 @@ exports.seed = function (knex) {
           sku: "lush2",
           units: 100,
           total_quantity: 2000,
-          price: 2,
+          price: 20,
           image:
             "https://res.cloudinary.com/lush/image/upload/s--TQWYn6RC--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2018/08/magic_crystals_scrub_christmas_2018.jpg?itok=jgm5pUI4",
           best_before_date: "2021-05-02T16:49:19.278Z",
@@ -42,7 +42,7 @@ exports.seed = function (knex) {
           sku: "lush3",
           units: 100,
           total_quantity: 5000,
-          price: 2,
+          price: 20,
           image:
             "https://res.cloudinary.com/lush/image/upload/s--X0Kkkdit--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2018/10/web_coconut_rice_cake_shampoo_bar_2019.jpg?itok=TKvmG6-f",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -56,7 +56,7 @@ exports.seed = function (knex) {
           sku: "lush4",
           units: 100,
           total_quantity: 2000,
-          price: 2,
+          price: 20,
           image:
             "https://res.cloudinary.com/lush/image/upload/s--9Jk6zwSL--/c_fill,h_200,q_jpegmini,w_200/v1/products/main/2015/05/Key_Lime_Web.jpg?itok=LtKgTc0p",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -70,7 +70,7 @@ exports.seed = function (knex) {
           sku: "lush5",
           units: 100,
           total_quantity: 20000,
-          price: 3,
+          price: 30,
           image:
             "https://res.cloudinary.com/lush/image/upload/s--22K4ANnb--/c_fill,h_200,q_jpegmini,w_200/v1/lush_content/products/main/2019/01/web_groovy_-kind_of_love_bath_bomb_harajuku_shop_2018.jpg?itok=---vB_zw",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -85,7 +85,7 @@ exports.seed = function (knex) {
           sku: "Pringles1",
           units: 100,
           total_quantity: 20000,
-          price: 1,
+          price: 10,
           image: "https://images.heb.com/is/image/HEBGrocery/001865742",
           best_before_date: "2021-09-01T16:49:19.278Z",
           descriptions: "Classic flavour",
@@ -98,7 +98,7 @@ exports.seed = function (knex) {
           sku: "Pringles2",
           units: 100,
           total_quantity: 20000,
-          price: 3,
+          price: 10,
           image:
             "https://images-na.ssl-images-amazon.com/images/I/81JrYPJ0QXL._SY741_.jpg",
           best_before_date: "2021-07-01T16:49:19.278Z",
@@ -112,7 +112,7 @@ exports.seed = function (knex) {
           sku: "Pringles3",
           units: 100,
           total_quantity: 20000,
-          price: 4,
+          price: 10,
           image:
             "https://images-na.ssl-images-amazon.com/images/I/91GSJSJbWCL._SY879_PIbundle-3,TopRight,0,0_SX664SY879SH20_.jpg",
           best_before_date: "2021-06-01T16:49:19.278Z",
@@ -127,7 +127,7 @@ exports.seed = function (knex) {
           sku: "Pringles4",
           units: 100,
           total_quantity: 20000,
-          price: 2,
+          price: 10,
           image:
             "https://i5.walmartimages.com/asr/b40775b8-84f0-4371-b51e-aa8c4fb82d49_1.62d8306eeb14714457539a68f0c7ab40.jpeg",
           best_before_date: "2022-05-01T16:49:19.278Z",
@@ -142,7 +142,7 @@ exports.seed = function (knex) {
           sku: "Pringles5",
           units: 100,
           total_quantity: 20000,
-          price: 5,
+          price: 10,
           image:
             "https://images.albertsons-media.com/is/image/ABS/960124188?$ecom-pdp-desktop$&defaultImage=Not_Available",
           best_before_date: "2021-04-01T16:49:19.278Z",
@@ -157,7 +157,7 @@ exports.seed = function (knex) {
           sku: "Always1",
           units: 100,
           total_quantity: 20000,
-          price: 5,
+          price: 20,
           image:
             "https://res.cloudinary.com/mwace/image/upload/w_210,c_limit,q_auto,f_auto/Always_EN_UK/Products/Sanitary-Towels/Sensitive/Normal-Ultra-Size-1-With-Wings/Always-Sensitive-Ultra-Normal-Sanitary-Towels-With-Wings-14ct.png",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -172,7 +172,7 @@ exports.seed = function (knex) {
           sku: "Always2",
           units: 100,
           total_quantity: 20000,
-          price: 3,
+          price: 20,
           image:
             "https://res.cloudinary.com/mwace/image/upload/w_210,c_limit,q_auto,f_auto/Always_EN_UK/Products/Panty-Liners/Cotton-Protection/Alwayss-Dailies-Cotton-Protection-Normal-Panty-Liners-28ct.png",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -187,7 +187,7 @@ exports.seed = function (knex) {
           sku: "Always3",
           units: 100,
           total_quantity: 20000,
-          price: 4,
+          price: 10,
           image:
             "https://res.cloudinary.com/mwace/image/upload/w_210,c_limit,q_auto,f_auto/Always_EN_UK/Products/Sanitary-Towels/Maxi/Night-Size-3-With-Wings/Always-Maxi-Night-Sanitary-Towels-With-Wings-9ct.png",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -202,7 +202,7 @@ exports.seed = function (knex) {
           sku: "Always4",
           units: 100,
           total_quantity: 20000,
-          price: 6,
+          price: 20,
           image:
             "https://res.cloudinary.com/mwace/image/upload/w_auto,c_limit,q_auto,f_auto/Tampax-US-EN/Products/Spring%2021%20Update/Pearl/00073010004559_C1N1.png",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -216,7 +216,7 @@ exports.seed = function (knex) {
           sku: "Always5",
           units: 100,
           total_quantity: 20000,
-          price: 7,
+          price: 25,
           image:
             "https://res.cloudinary.com/mwace/image/upload/w_auto,c_limit,q_auto,f_auto/Tampax-US-EN/Products/Spring%2021%20Update/Pearl/00073010012172_C1N1.png",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -232,7 +232,7 @@ exports.seed = function (knex) {
           sku: "Pocari1",
           units: 100,
           total_quantity: 20000,
-          price: 5,
+          price: 40,
           image:
             "https://www.maybelline.com/~/media/mny/global/face-makeup/foundation/fit-me-dewy-smooth-foundation/maybelline-foundation-fit-me-dewy-and-smooth-sun-beige-041554238761-c.jpg?thn=0&w=380&hash=E5801CB8FDCD20BA4E9A523F7AE65FF578748031",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -247,7 +247,7 @@ exports.seed = function (knex) {
           sku: "Pocari2",
           units: 100,
           total_quantity: 20000,
-          price: 7,
+          price: 50,
           image:
             "https://www.maybelline.com/~/media/mny/global/face-makeup/contouring/facestudio-master-strobing-stick-illuminating-highlighter/maybelline-contouring-face-studio-master-strobe-light-iridescent-041554486155-c.jpg?thn=0&w=380&hash=A4A245B43870BA7989C36AA6360BC121B30BF661",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -262,7 +262,7 @@ exports.seed = function (knex) {
           sku: "Pocari3",
           units: 100,
           total_quantity: 20000,
-          price: 5,
+          price: 50,
           image:
             "https://www.maybelline.com/~/media/mny/us/lips-makeup/lipstick/color-sensational-shine-compulsion-lipstick/maybelline-lipstick-color-sensational-shine-compulsion-secret-blush-0415545542935-o.jpg?thn=0&w=380&hash=0E5E17106C7BB1143DA332FC678543BCBDCDFA30",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -277,7 +277,7 @@ exports.seed = function (knex) {
           sku: "Pocari4",
           units: 100,
           total_quantity: 20000,
-          price: 8,
+          price: 50,
           image:
             "https://images-na.ssl-images-amazon.com/images/I/616XgIuN3iL._AC_SY606_.jpg",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -292,7 +292,7 @@ exports.seed = function (knex) {
           sku: "Pocari5",
           units: 100,
           total_quantity: 20000,
-          price: 4,
+          price: 30,
           image:
             "https://d3r2zleywq7959.cloudfront.net/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/7/5/755931_xlarge.jpg",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -308,7 +308,7 @@ exports.seed = function (knex) {
           sku: "Kelloggs1",
           units: 100,
           total_quantity: 20000,
-          price: 3,
+          price: 20,
           image:
             "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508712/prod_img-1135439_multi-grain.png",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -323,7 +323,7 @@ exports.seed = function (knex) {
           sku: "Kelloggs2",
           units: 100,
           total_quantity: 20000,
-          price: 3,
+          price: 15,
           image:
             "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508660/kicproductimage-127505_cereal_original.png",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -338,7 +338,7 @@ exports.seed = function (knex) {
           sku: "Kelloggs3",
           units: 100,
           total_quantity: 20000,
-          price: 2,
+          price: 20,
           image:
             "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508497/prod_img-3394699_orig.png",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -353,7 +353,7 @@ exports.seed = function (knex) {
           sku: "Kelloggs4",
           units: 100,
           total_quantity: 20000,
-          price: 3,
+          price: 15,
           image:
             "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508655/kicproductimage-110082_rbc.png",
           best_before_date: "2021-05-01T16:49:19.278Z",
@@ -368,13 +368,13 @@ exports.seed = function (knex) {
           sku: "Kelloggs5",
           units: 100,
           total_quantity: 20000,
-          price: 2,
+          price: 15,
           image:
             "https://images.kglobalservices.com/www.kelloggs.com/en_us/product/product_4508489/kicproductimage-125783_cp.png",
           best_before_date: "2021-05-01T16:49:19.278Z",
           descriptions: "25.6oz box. Sweetened cereal from real corn.",
         },
-        //NotSpice(5)
+        //NotSpice(4)
         {
           seller_id: 8,
           event_id: null,
@@ -383,7 +383,7 @@ exports.seed = function (knex) {
           sku: "spice1",
           units: 100,
           total_quantity: 20000,
-          price: 10,
+          price: 15,
           image: "https://s3.images-iherb.com/mcg/mcg24521/l/3.jpg",
           best_before_date: "2021-10-01T16:49:19.278Z",
           descriptions:
@@ -397,7 +397,7 @@ exports.seed = function (knex) {
           sku: "spice2",
           units: 100,
           total_quantity: 20000,
-          price: 10,
+          price: 15,
           image: "https://s3.images-iherb.com/mcg/mcg82790/l/3.jpg",
           best_before_date: "2021-10-01T16:49:19.278Z",
           descriptions:
@@ -411,7 +411,7 @@ exports.seed = function (knex) {
           sku: "spice3",
           units: 100,
           total_quantity: 20000,
-          price: 10,
+          price: 15,
           image: "https://s3.images-iherb.com/mcg/mcg82795/l/3.jpg",
           best_before_date: "2021-11-01T16:49:19.278Z",
           descriptions:
@@ -425,11 +425,227 @@ exports.seed = function (knex) {
           sku: "spice4",
           units: 100,
           total_quantity: 20000,
-          price: 10,
+          price: 15,
           image: "https://s3.images-iherb.com/mcg/mcg00292/l/0.jpg",
           best_before_date: "2021-11-01T16:49:19.278Z",
           descriptions:
             "This iconic blend of red chill peppers, garlic and vinegar adds spicy hot, tangy flavor to everything from chicken wings to noodle bowls. Try this dry seasoning as a rub on steak, chicken and ribs.",
+        },
+        //IT'S SUMMER(3)
+        {
+          seller_id: 9,
+          event_id: null,
+          name: " Lavender Night-Time Cleansing Wash, Sensitive Skin",
+          category: ["Feminine Care"],
+          sku: "summer1",
+          units: 100,
+          total_quantity: 10000,
+          price: 40,
+          image: "https://s3.images-iherb.com/sue/sue00257/l/2.jpg",
+          best_before_date: "2021-12-01T16:49:19.278Z",
+          descriptions:
+            "After a long day, you can trust It's Summer Cleansing Wash packed with 5-in-1 freshness. It's Summer Cleansing Wash won't dry like soap, and it's pH balanced to match your body's natural chemistry. And not only does It's Summer Cleansing Wash help stor odor, it features gynecologist-tested Safe Scents™ signature scents approved for everyday or night use! Wet area. Pour small amount onto hand or washcloth, and apply to your intimate area. Rinse thoroughly, and Ta-dah, you're clean!",
+        },
+        {
+          seller_id: 9,
+          event_id: null,
+          name: "Cleansing Wash, Coconut Water",
+          category: ["Feminine Care"],
+          sku: "summer2",
+          units: 100,
+          total_quantity: 10000,
+          price: 30,
+          image: "https://s3.images-iherb.com/sue/sue00002/l/2.jpg",
+          best_before_date: "2021-12-01T16:49:19.278Z",
+          descriptions:
+            "Try New Simply It's Summer Cleansing Wash Simply It's Summer is made with simple ingredients, free from dyes and parabens. Plus, it's infused with botanicals extracts for an effective clean that is gentle by nature. With de-light-ful scents inspired by nature, our cleansing was is created for your most intimate parts, gently cleansing away the bacteria that can cause odor, and formulated to match a woman's natural pH.",
+        },
+        {
+          seller_id: 9,
+          event_id: null,
+          name: "5 in 1 Cleansing Cloths, Simply Sensitive",
+          category: ["Feminine Care"],
+          sku: "summer3",
+          units: 100,
+          total_quantity: 10000,
+          price: 10,
+          image: "https://s3.images-iherb.com/sue/sue08735/l/0.jpg",
+          best_before_date: "2021-12-01T16:49:19.278Z",
+          descriptions:
+            "5 Ways for freshness anytime. That less-than-fresh feeling doesn't always wait for when you have time to hop into the shower. So we created It's Summer Cleansing Cloths perfect for those in-between times, like after the gym or as a quick refresher between work and happy hour. Only It's Summer gives you 5 fresh benefits in 1 convenient cloth.",
+        },
+        // alcohol(2)
+        {
+          seller_id: 10,
+          event_id: null,
+          name: "RUTHLESS LEMONLADE",
+          category: ["Alcohol", "Western"],
+          sku: "alcohol1",
+          units: 100,
+          total_quantity: 10000,
+          price: 10,
+          image:
+            "https://cdn.shopify.com/s/files/1/1414/6300/products/image_3706046d-832c-4728-8eb1-3a2071e4235d_1100x.jpg?v=1617027134",
+          best_before_date: "2021-04-01T16:49:19.278Z",
+          descriptions: "Bitter Sweet Hard-Lemonade, 5.0%",
+        },
+        {
+          seller_id: 10,
+          event_id: null,
+          name: "ADULT SMOOTHIE",
+          category: ["Alcohol", "Western"],
+          sku: "alcohol2",
+          units: 100,
+          total_quantity: 10000,
+          price: 10,
+          image:
+            "https://cdn.shopify.com/s/files/1/1414/6300/products/image_6950fbd8-e70b-4170-9d10-eef92bff4560_1100x.jpg?v=1617027002",
+          best_before_date: "2021-04-01T16:49:19.278Z",
+          descriptions: "Blueberry Gin Long Drink, 5.0%",
+        },
+        // powdered drink (3)
+        {
+          seller_id: 11,
+          event_id: null,
+          name: "Organic Green Tea Powder, 12 Packets",
+          category: ["Powdered Beverages", "Asian"],
+          sku: "powder1",
+          units: 100,
+          total_quantity: 10000,
+          price: 40,
+          image: "https://s3.images-iherb.com/ris/ris11201/l/5.jpg",
+          best_before_date: "2021-05-10T16:49:19.278Z",
+          descriptions:
+            "Matcha is an uplifting Japanese tea powder that provides energy and facilitates mental clarity and focus. With Matcha Travel Packs you're able to enjoy the benefits of matcha wherever you are. Stash a few in your bag or pocket before your next adventure.",
+        },
+        {
+          seller_id: 11,
+          event_id: null,
+          name: "Japanese Green Tea Latte Mix, Sweet Matcha",
+          category: ["Powdered Beverages", "Asian"],
+          sku: "powder2",
+          units: 100,
+          total_quantity: 10000,
+          price: 20,
+          image: "https://s3.images-iherb.com/ris/ris08211/l/5.jpg",
+          best_before_date: "2021-04-20T16:49:19.278Z",
+          descriptions:
+            "Treat yourself to a decadent cafe worthy latte with this blend of authentic Japanese matcha and pure cane sugar. Enjoy a little more green and a lot less guilt. Discover Sweet Matcha and leave no leaf unturned.",
+        },
+        {
+          seller_id: 11,
+          event_id: null,
+          name: "Hazelnut White Coffee",
+          category: ["Powdered Beverages", "Asian"],
+          sku: "powder3",
+          units: 100,
+          total_quantity: 10000,
+          price: 20,
+          image:
+            "https://secure.ap-tescoassets.com/assets/MY/555/9555037203555/ShotType1_540x540.jpg",
+          best_before_date: "2021-04-20T16:49:19.278Z",
+          descriptions:
+            "It might sound simple, but that is precisely out goal: perfect coffee.",
+        },
+        // packaged meal(2)
+        {
+          seller_id: 12,
+          event_id: null,
+          name: "Topokki Set Korean Rice Pasta, Original",
+          category: ["Packaged Meals", "Asian"],
+          sku: "ktaste1",
+          units: 100,
+          total_quantity: 10000,
+          price: 20,
+          image:
+            "https://i5.walmartimages.com/asr/4032f30d-17af-4452-865e-9a527a4e8890.678bdca3fcf68d709a3b39aaf2ecade2.jpeg",
+          best_before_date: "2021-05-25T16:49:19.278Z",
+          descriptions: "Simple 3-Minutes Cooking By Boiling Water",
+        },
+        {
+          seller_id: 12,
+          event_id: null,
+          name: "Topokki Set Korean Rice Pasta, Seaweed",
+          category: ["Packaged Meals", "Asian"],
+          sku: "ktaste2",
+          units: 100,
+          total_quantity: 10000,
+          price: 20,
+          image:
+            "https://i5.walmartimages.com/asr/b9014cee-78b0-4adc-b76c-6f1f5ec0d7b3.02e1866958211e2e15987c7da5375165.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
+          best_before_date: "2021-05-25T16:49:19.278Z",
+          descriptions: "Simple 3-Minutes Cooking By Boiling Water",
+        },
+        //Supplements(5)
+        {
+          seller_id: 13,
+          event_id: null,
+          name: "Glucosamine HCL 1500mg, 400 Tablets",
+          category: ["Supplements", "Asian"],
+          sku: "health1",
+          units: 100,
+          total_quantity: 5000,
+          price: 150,
+          image:
+            "https://res.cloudinary.com/hkiilvsot/image/upload/s--SmmgtXJW--/c_limit,f_auto,h_1024,q_auto,w_1024/epprmbkzvqwns7vmfhwv",
+          best_before_date: "2021-11-15T16:49:19.278Z",
+          descriptions:
+            "Supports joint mobility & joint health. One a day, maximum strength",
+        },
+        {
+          seller_id: 13,
+          event_id: null,
+          name: "Bilberry & Lutein, 120 Capsules",
+          category: ["Supplements", "Asian"],
+          sku: "health2",
+          units: 100,
+          total_quantity: 5000,
+          price: 70,
+          image: "https://i.ebayimg.com/images/g/W~EAAOSwM4xXZ4Tk/s-l300.jpg",
+          best_before_date: "2021-12-19T16:49:19.278Z",
+          descriptions: "Supports eye health",
+        },
+        {
+          seller_id: 13,
+          event_id: null,
+          name: "CoEnzyme Q10, 150mg",
+          category: ["Supplements", "Asian"],
+          sku: "health3",
+          units: 100,
+          total_quantity: 5000,
+          price: 80,
+          image:
+            "https://lh3.googleusercontent.com/JXK8vswpjJzboBSkLCL0kuOJg7SHiPG96yoFXhmeW1B-Jk0QWZhRJ3tQoAf2AqLgzWZKwxkZ5ExrDMNKX9py2Q=s1000-c",
+          best_before_date: "2021-11-12T16:49:19.278Z",
+          descriptions: "Supports heart health & energy level",
+        },
+        {
+          seller_id: 13,
+          event_id: null,
+          name: "Collagen Juice (Mango Peach)",
+          category: ["Supplements", "Skin Care", "Asian"],
+          sku: "health4",
+          units: 100,
+          total_quantity: 5000,
+          price: 40,
+          image:
+            "https://ripeme.com/wp-content/uploads/DOKI-GLOW-COLLAGEN-JUICE-%E2%80%93-MANGO-PEACH240GM.jpg",
+          best_before_date: "2021-11-12T16:49:19.278Z",
+          descriptions: "Enjoy with cold water or soda",
+        },
+        {
+          seller_id: 13,
+          event_id: null,
+          name: "Collagen Juice (Passion Dragon)",
+          category: ["Supplements", "Skin Care", "Asian"],
+          sku: "health5",
+          units: 100,
+          total_quantity: 5000,
+          price: 40,
+          image:
+            "https://ripeme.com/wp-content/uploads/DOKI-GLOW-COLAGEN-JUICE-%E2%80%93-PSSIONDRGNFRUIT-SNOW240G.jpg",
+          best_before_date: "2021-06-22T16:49:19.278Z",
+          descriptions: "Enjoy with cold water or soda",
         },
       ]);
     });
