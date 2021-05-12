@@ -29,19 +29,7 @@ module.exports = class DataService {
   getOneItem(itemid) {
     //USERID
     return this.knex
-      .select(
-        "id",
-        "seller_id",
-        "category",
-        "sku",
-        "name",
-        "units",
-        "total_quantity",
-        "price",
-        "best_before_date",
-        "image",
-        "descriptions"
-      )
+      .select()
       .from("inventory")
       .where("sku", itemid)
       .then((data) => {
@@ -112,19 +100,28 @@ module.exports = class DataService {
     });
   }
 
+  getEvent(userid) {
+    return this.knex("events")
+      .select()
+      .where("seller_id", userid)
+      .then((data) => {
+        return data;
+      });
+  }
+
+  updateEventToItem(userid, eventid, itemid) {
+    return this.knex("inventory")
+      .update("event_id", eventid)
+      .where("seller_id", userid)
+      .andWhere("sku", itemid)
+      .then(() => console.log("add to event"))
+      .catch((err) => console.log(err));
+  }
+
   // User
   getUser(userid) {
     return this.knex("users")
-      .select(
-        "id",
-        "name",
-        "password",
-        "email",
-        "address",
-        "district",
-        "tier",
-        "phone_no"
-      )
+      .select()
       .where("id", userid)
       .andWhere("seller", true)
       .then((data) => {

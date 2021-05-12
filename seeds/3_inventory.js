@@ -374,6 +374,63 @@ exports.seed = function (knex) {
           best_before_date: "2021-05-01T16:49:19.278Z",
           descriptions: "25.6oz box. Sweetened cereal from real corn.",
         },
+        //NotSpice(5)
+        {
+          seller_id: 8,
+          event_id: null,
+          name: "Italian Seasoning, 0.65 oz (18 g)",
+          category: ["Seasoning", "Western"],
+          sku: "spice1",
+          units: 100,
+          total_quantity: 20000,
+          price: 10,
+          image: "https://s3.images-iherb.com/mcg/mcg24521/l/3.jpg",
+          best_before_date: "2021-10-01T16:49:19.278Z",
+          descriptions:
+            "This classic blend of sweet aromatic herbs brings a taste of Italy to your table. Organic herbs (including marjoram, rosemary, basil, thyme, savory, oregano, sage).",
+        },
+        {
+          seller_id: 8,
+          event_id: null,
+          name: "Garlic Powder, 0.65 oz (18 g)",
+          category: ["Seasoning", "Western"],
+          sku: "spice2",
+          units: 100,
+          total_quantity: 20000,
+          price: 10,
+          image: "https://s3.images-iherb.com/mcg/mcg82790/l/3.jpg",
+          best_before_date: "2021-10-01T16:49:19.278Z",
+          descriptions:
+            "Garlic adds rich deep flavor to just about any dish you make.",
+        },
+        {
+          seller_id: 8,
+          event_id: null,
+          name: "Thyme, 0.65 oz (18 g)",
+          category: ["Seasoning", "Western"],
+          sku: "spice3",
+          units: 100,
+          total_quantity: 20000,
+          price: 10,
+          image: "https://s3.images-iherb.com/mcg/mcg82795/l/3.jpg",
+          best_before_date: "2021-11-01T16:49:19.278Z",
+          descriptions:
+            "Versatile thyme adds its warm aromatic flavor to stews, soups, and roasted meats and poultry. Add to stuffing, vegetables, beans and Jambalaya.",
+        },
+        {
+          seller_id: 8,
+          event_id: null,
+          name: "Sriracha Seasoning, 2.37 oz (67 g)",
+          category: ["Seasoning", "Western"],
+          sku: "spice4",
+          units: 100,
+          total_quantity: 20000,
+          price: 10,
+          image: "https://s3.images-iherb.com/mcg/mcg00292/l/0.jpg",
+          best_before_date: "2021-11-01T16:49:19.278Z",
+          descriptions:
+            "This iconic blend of red chill peppers, garlic and vinegar adds spicy hot, tangy flavor to everything from chicken wings to noodle bowls. Try this dry seasoning as a rub on steak, chicken and ribs.",
+        },
       ]);
     });
 };

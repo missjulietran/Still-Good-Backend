@@ -106,6 +106,21 @@ module.exports = (express) => {
       .catch((err) => res.status(500).json(err));
   });
 
+  router.get("/eventitem", function (req, res) {
+    return dataService
+      .getEvent(req.user.id)
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => console.log(err));
+  });
+  router.put("/eventitem", function (req, res) {
+    return dataService
+      .updateEventToItem(req.user.id, req.body.eventid, req.body.item)
+      .then(() => res.status(200).json("updated"))
+      .catch((err) => res.status(500).json(err));
+  });
+
   //Update user
   var pw, after;
   router.get("/user", function (req, res) {

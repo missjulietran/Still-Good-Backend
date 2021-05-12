@@ -22,7 +22,6 @@ const buyerRouter = require("./routers/BuyerRouter")(express);
 const bodyParser = require("body-parser");
 const { post } = require("request-promise");
 
-
 const listingRouter = require("./routers/ListingRouter")(express);
 const signUpRouter = require("./routers/SignUpRouter")(express);
 
@@ -39,9 +38,8 @@ app.use("/dashboard", auth.authenticate(), dashboardRouter);
 app.use("/buyerDashboard", auth.authenticate(), buyerRouter);
 
 // app.use("/", cartRouter);
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
-
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // localhost:8080
 app.listen(process.env.PORT || 8080, () => {
