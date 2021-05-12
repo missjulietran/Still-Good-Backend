@@ -80,7 +80,57 @@ exports.seed = function (knex) {
           password:
             "$2b$05$bNXEaWJovE9O.6GQQpT39ecgN8y5YwoK342sDbFjnQGXTZgQjCq4W",
           address: "60 Happy Road, Tsim Sha Tsui, Hong Kong",
-          district: "Tsuen Wan",
+          district: "Yau Tsim Mong",
+          phone_no: 123456789,
+        },
+        {
+          seller: true,
+          name: "IT'S SUMMER",
+          email: "ITSSUMMER@test.com",
+          password:
+            "$2b$05$bNXEaWJovE9O.6GQQpT39ecgN8y5YwoK342sDbFjnQGXTZgQjCq4W",
+          address: "20 Kimberley Road, Tsim Sha Tsui, Hong Kong",
+          district: "Yau Tsim Mong",
+          phone_no: 123456789,
+        },
+        {
+          seller: true,
+          name: "ALCOHOLIC",
+          email: "alcoholic@test.com",
+          password:
+            "$2b$05$bNXEaWJovE9O.6GQQpT39ecgN8y5YwoK342sDbFjnQGXTZgQjCq4W",
+          address: "20 Nathan Road, Tsim Sha Tsui, Hong Kong",
+          district: "Yau Tsim Mong",
+          phone_no: 123456789,
+        },
+        {
+          seller: true,
+          name: "RISHI",
+          email: "rishi@test.com",
+          password:
+            "$2b$05$bNXEaWJovE9O.6GQQpT39ecgN8y5YwoK342sDbFjnQGXTZgQjCq4W",
+          address: "10 Flush Road, Central, Hong Kong",
+          district: "Central and Western",
+          phone_no: 123456789,
+        },
+        {
+          seller: true,
+          name: "K-Taste",
+          email: "k-taste@test.com",
+          password:
+            "$2b$05$bNXEaWJovE9O.6GQQpT39ecgN8y5YwoK342sDbFjnQGXTZgQjCq4W",
+          address: "87 Never Lane, Kwun Tong, Hong Kong",
+          district: "Kwun Tong",
+          phone_no: 123456789,
+        },
+        {
+          seller: true,
+          name: "Good Health",
+          email: "goodhealth@test.com",
+          password:
+            "$2b$05$bNXEaWJovE9O.6GQQpT39ecgN8y5YwoK342sDbFjnQGXTZgQjCq4W",
+          address: "120 Never Lane, Kwun Tong, Hong Kong",
+          district: "Kwun Tong",
           phone_no: 123456789,
         },
       ]);
