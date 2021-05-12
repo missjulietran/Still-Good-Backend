@@ -100,6 +100,7 @@ module.exports = (express) => {
 
   // Update event
   router.post("/uploadEvent", function (req, res) {
+    console.log('upload event tried')
     return dataService
       .insertEvent(req.user.id, req.body, imgurURL) //USERID
       .then(() => res.status(200).json("uploaded"))
