@@ -57,8 +57,8 @@ module.exports = class BuyerService {
       address: data.address,
       district: data.district,
       phone_no: data.phone_no,
-      businesscert: files.businesscert,
-    certfile: files.certfile,
+      //businesscert: files.businesscert,
+    //certfile: files.certfile,
     businessname: data.businessname,
     };
     for (let i = 0; i < userValue.length; i++) {
