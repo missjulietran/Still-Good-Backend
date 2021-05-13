@@ -100,9 +100,25 @@ module.exports = (express) => {
 
   // Update event
   router.post("/uploadEvent", function (req, res) {
+    console.log('upload event tried')
     return dataService
       .insertEvent(req.user.id, req.body, imgurURL) //USERID
       .then(() => res.status(200).json("uploaded"))
+      .catch((err) => res.status(500).json(err));
+  });
+
+  router.get("/eventitem", function (req, res) {
+    return dataService
+      .getEvent(req.user.id)
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => console.log(err));
+  });
+  router.put("/eventitem", function (req, res) {
+    return dataService
+      .updateEventToItem(req.user.id, req.body.eventid, req.body.item)
+      .then(() => res.status(200).json("updated"))
       .catch((err) => res.status(500).json(err));
   });
 

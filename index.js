@@ -21,7 +21,10 @@ const buyerRouter = require("./routers/BuyerRouter")(express);
 const cartRouter = require("./routers/CartRouter")(express);
 
 //stripe
-const stripe = require('stripe')('sk_test_51IppcNIrcJJ8VlaB7oAz9YKxFuPJO77a1XZuL0MOUSeeH7I2rJ7J8ZHg1I6GDPCNcpsyszmIkoH2GgKPxsiByz6A00HXPQQOdm')
+
+const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST)
+const bodyParser = require("body-parser");
+const { post } = require("request-promise");
 
 const listingRouter = require("./routers/ListingRouter")(express);
 const signUpRouter = require("./routers/SignUpRouter")(express);
