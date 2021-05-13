@@ -24,6 +24,7 @@ module.exports = (express) => {
 
   function buyerData(req, res) {
     function getUser() {
+      console.log(req.user.id)
       return buyerService
         .getBuyer(req.user.id)
         .then((data) => {

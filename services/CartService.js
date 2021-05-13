@@ -3,13 +3,27 @@ module.exports = class CartService {
         this.knex = knex;
     }
 
-    PaymentForm(amount, id) {
-        console.log("payment", amount);
-        console.log("id", id);
-        return this.knex("users").insert({
-        amount: amount,
-        buyer_id: id,
-        confirm: true,
-    })
+    addItem(itemid) {
+        return this.knex('inventory')
+        .decrement("total_quantity",1)
+        .where('sku',itemid)
+        .then(data=>{return data})
+    };
+
+    reduceQuantity(itemid){
+        return this.knex('inventory')
+        .increment("total_quantity",1)
+        .where('sku',itemid)
+        .then(data=>{return data})
+
+    }
+
+
+    deleteFromCart(itemid,initQuant){
+        return this.knex('inventory')
+        .increment('total_quantity',initQuant)
+        .where('sku',itemid)
+        .then(data=>{return data})
+
     }
 }

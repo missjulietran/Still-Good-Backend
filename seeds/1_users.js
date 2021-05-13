@@ -49,6 +49,7 @@ exports.seed = function (knex) {
         },
         {
           buyer: true,
+          name:'test',
           email: "test3@test.com",
           password:
             "$2b$05$bNXEaWJovE9O.6GQQpT39ecgN8y5YwoK342sDbFjnQGXTZgQjCq4W",
