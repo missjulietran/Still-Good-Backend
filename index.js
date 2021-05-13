@@ -7,6 +7,8 @@ const knexConfig = require("./knexfile").development;
 const knex = require("knex")(knexConfig);
 const app = express();
 
+require("dotenv").config()
+
 //Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
