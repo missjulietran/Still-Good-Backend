@@ -12,6 +12,7 @@ exports.up = function (knex) {
     table.binary("certfile");
     table.string("businessname");
     table.integer("phone_no");
+    table.specificType("cart", "varchar[]");
     table.timestamps(true, true);
   });
 };
