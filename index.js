@@ -70,7 +70,7 @@ const lineItems=async()=>{
 console.log(checkoutInfo)
 return
 }
-//Stripe Route
+//Stripe Routes
 app.post('/create-checkout-session',async(req,res)=>{
     await lineItems()
   const session = await stripe.checkout.sessions.create(
@@ -79,11 +79,20 @@ app.post('/create-checkout-session',async(req,res)=>{
     payment_method_types: ['card'],
     line_items: checkoutInfo,
     mode: 'payment',
-    success_url: 'https://example.com/cancel',
-    cancel_url: 'https://localhost:3000/cart',
+    success_url: `${process.env.REACT_APP}/success`,
+    cancel_url: `${process.env.REACT_APP}/cart`,
   });
   console.log(session)
   res.json({ id: session.id });
+});
+
+app.post('/paymentsuccess', async(req,res)=>{
+ await fs.writeFile(__dirname+'/data/cart.json','',{encoding:'utf-8'},(err)=>{
+    if(err){
+      console.log(err)
+    };
+  })
+  .then(console.log('json cleared'));
 });
 
 
