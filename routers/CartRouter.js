@@ -30,7 +30,6 @@ module.exports = (express)=>{
   //Updated DB to restore quantity of deleted item
   router.post('/deletefromcart', (req,res)=>{
     let id=req.body.id
-    console.log(id)
     let initQuant=req.body.initQuant
     console.log(initQuant)
     return cartService.deleteFromCart(id,initQuant)
@@ -53,5 +52,34 @@ module.exports = (express)=>{
     })
   })
 
+  //CartVariable
+  var cartData;
+  //Commit Transaction to Cart Table
+    router.post('/cartcommit', (req,res)=>{
+      let id=req.body.id
+      let items=req.body.items
+      items.map(item=>{
+        return cartService.cartCommit(id,item.id,item.quantity)
+      })
+    })
+
+    router.post('/paymentsuccess', async(req,res)=>{
+      return cartService.getPaymentSuccess()
+      .then(data=>{
+        cartData= data.map(item=>{
+          return{
+            'buyer':item.buyer_id,
+            'id':item.inventory_id,
+            'quantity':item.quantity
+          }
+        });
+        return cartService.orderCreation(data[0].buyer_id)
+        })
+      .then(data=>console.log(data))
+      });
+
 return router;
 }
+
+
+// .then(data=>{
