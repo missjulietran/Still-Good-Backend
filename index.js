@@ -62,7 +62,7 @@ const lineItems=async()=>{
         product_data: {
           name: item.name,
         },
-        unit_amount: item.price,
+        unit_amount: item.price*100,
       },
       quantity: item.quantity,
     }
