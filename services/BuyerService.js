@@ -47,6 +47,11 @@ module.exports = class BuyerService {
       .catch((err) => console.log(err));
   }
 
+  addOrder(buyerid){
+    return this.knex("orders")
+    .insert()
+  }
+
   updateBuyerData(buyerid, data, files, pw) {
     let userValue = Object.values(data);
     let userKey = Object.keys(data);

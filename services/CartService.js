@@ -26,4 +26,33 @@ module.exports = class CartService {
         .then(data=>{return data})
 
     }
+
+    cartCommit(buyerid,itemid,quantity){
+        console.log('inserting to cart', buyerid, itemid, quantity)
+        return this.knex('cart')
+        .insert({
+            buyer_id:buyerid,
+            inventory_id:itemid,
+            quantity:quantity
+        })
+        .then(console.log('inserted'))
+    }
+
+    getPaymentSuccess(){
+        return this.knex('cart')
+        .select('*')
+        .then(data=>{return data})
+    }
+
+    orderCreation(buyerid){
+        return this.knex('orders')
+        .insert({
+            buyer_id:buyerid,
+            shipped:'Preparing'
+        })
+    }
+
+    orderCommit(buyer_id){
+       
+    }
 }
