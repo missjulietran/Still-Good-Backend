@@ -47,18 +47,20 @@ module.exports = (express) => {
       return buyerService
         .getRecentOrderId(req.user.id)
         .then((data) => {
-          let orderId = data[0].id;
+          if(data.length>0){
+            let orderId = data[0].id;
 
-          return buyerService
-            .getOrderDetails(orderId)
-            .then((data) => {
-              data.map((order) => {
-                sum += order.quantity * order.price;
-              });
-
-              return [data, sum];
-            })
-            .catch((err) => console.log(err));
+            return buyerService
+              .getOrderDetails(orderId)
+              .then((data) => {
+                data.map((order) => {
+                  sum += order.quantity * order.price;
+                });
+  
+                return [data, sum];
+              })
+              .catch((err) => console.log(err));
+          }
         })
         .catch((err) => console.log(err));
     }

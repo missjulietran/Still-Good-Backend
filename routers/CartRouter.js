@@ -66,13 +66,13 @@ module.exports = (express)=>{
     router.post('/paymentsuccess', async(req,res)=>{
       return cartService.getPaymentSuccess()
       .then(data=>{
-        cartData= data.map(item=>{
-          return{
-            'buyer':item.buyer_id,
-            'id':item.inventory_id,
-            'quantity':item.quantity
-          }
-        });
+        // cartData= data.map(item=>{
+        //   return{
+        //     'buyer':item.buyer_id,
+        //     'id':item.inventory_id,
+        //     'quantity':item.quantity
+        //   }
+        // });
         return cartService.orderCreation(data[0].buyer_id)
         })
       .then(data=>console.log(data))
