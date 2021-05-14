@@ -36,6 +36,7 @@ module.exports = (express) => {
         return cb(new Error("Allowed only .png"));
       }
     },
+    limits: { fileSize: 1 * 1024 * 1024 },
   });
   var imgurURL;
 
@@ -100,7 +101,7 @@ module.exports = (express) => {
 
   // Update event
   router.post("/uploadEvent", function (req, res) {
-    console.log('upload event tried')
+    console.log("upload event tried");
     return dataService
       .insertEvent(req.user.id, req.body, imgurURL) //USERID
       .then(() => res.status(200).json("uploaded"))
