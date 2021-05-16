@@ -37,6 +37,15 @@ module.exports = class CartService {
         })
         .then(console.log('inserted'))
     }
+    cartClear(user){
+        console.log('emptying',user)
+        return this.knex('cart')
+        .del()
+        .where({
+            'buyer_id':user
+        })
+        .then(()=>console.log('cart emptied', user))
+    }
 
     getPaymentSuccess(){
         return this.knex('cart')
@@ -50,9 +59,17 @@ module.exports = class CartService {
             buyer_id:buyerid,
             shipped:'Preparing'
         })
+        .returning('id')
     }
 
-    orderCommit(buyer_id){
-       
+    orderCommit(orderId,item,quantity){
+        console.log('inserting',orderId, item, quantity)
+       return this.knex('orderDetails')
+       .insert({
+           'orders_id':orderId,
+           'inventory_id':item,
+           'quantity':quantity
+       })
+       .then(()=>console.log('done'))
     }
 }
