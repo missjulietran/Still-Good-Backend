@@ -16,6 +16,7 @@ module.exports = (express)=>{
   //Updating DB when adding item to cart
   router.post("/addtocart", (req,res)=>{
       let id=req.body.id
+      res.status(200)
       return cartService.addItem(id)
       .catch((err) => console.log(err));
   });
@@ -39,6 +40,7 @@ module.exports = (express)=>{
   //Writing the JSON file
   router.post("/cartstatechange",(req,res)=>{
    let state=req.body.state;
+   res.status(200)
     fs.writeFile(path.resolve(__dirname,'../data/cart.json'), JSON.stringify(state), {encoding:'utf-8'},(err)=>{
       if(err){
         console.log(err)
