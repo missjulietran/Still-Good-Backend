@@ -52,8 +52,7 @@ module.exports = (express)=>{
     })
   })
 
-  //CartVariable
-  var cartData;
+
   //Commit Transaction to Cart Table
     router.post('/cartcommit', (req,res)=>{
       let id=req.body.id
@@ -64,22 +63,33 @@ module.exports = (express)=>{
     })
 
     router.post('/paymentsuccess', async(req,res)=>{
-      return cartService.getPaymentSuccess()
-      .then(data=>{
-        // cartData= data.map(item=>{
-        //   return{
-        //     'buyer':item.buyer_id,
-        //     'id':item.inventory_id,
-        //     'quantity':item.quantity
-        //   }
-        // });
-        return cartService.orderCreation(data[0].buyer_id)
-        })
-      .then(data=>console.log(data))
-      });
+      let userID=req.body.id;
+      return cartService.orderCreation(userID)
+        .then((orderId)=>{
+          return cartService.getPaymentSuccess()
+            .then(data=>{
+              cartData= data.map(item=>{
+              return cartService.orderCommit(orderId[0],item.inventory_id,item.quantity)
+              })
+            })
+            .then(fs.writeFile(path.resolve(__dirname,'../data/cart.json'), "", {encoding:'utf-8'},(err)=>{
+              if(err){
+                console.log(err)
+              } else console.log('cart empty')
+            }))
+              .then(()=>{return cartService.cartClear(userID)})
+        });
+    });
+
+    router.post('paymentcancelled',async(req,res)=>{
+      let userID=req.body.id;
+      return cartService.cartClear(userID)
+        .then(fs.writeFile(path.resolve(__dirname,'../data/cart.json'), "", {encoding:'utf-8'},(err)=>{
+          if(err){
+            console.log(err)
+          } else console.log('cart empty')
+        }))
+    })
 
 return router;
 }
-
-
-// .then(data=>{

@@ -79,8 +79,8 @@ app.post('/create-checkout-session',async(req,res)=>{
     payment_method_types: ['card'],
     line_items: checkoutInfo,
     mode: 'payment',
-    success_url: `${process.env.REACT_APP}/paymentsuccess`,
-    cancel_url: `${process.env.REACT_APP}/paymentfailure`,
+    success_url: `${process.env.REACT_APP}/buyers/paymentsuccess`,
+    cancel_url: `${process.env.REACT_APP}/buyers/paymentcancelled`,
   });
   console.log(session)
   res.json({ id: session.id });

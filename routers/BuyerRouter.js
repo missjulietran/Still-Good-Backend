@@ -24,7 +24,7 @@ module.exports = (express) => {
 
   function buyerData(req, res) {
     function getUser() {
-      console.log(req.user.id)
+      console.log('hey',req.user.id)
       return buyerService
         .getBuyer(req.user.id)
         .then((data) => {
@@ -60,7 +60,7 @@ module.exports = (express) => {
                 return [data, sum];
               })
               .catch((err) => console.log(err));
-          }
+          } else return [];
         })
         .catch((err) => console.log(err));
     }
