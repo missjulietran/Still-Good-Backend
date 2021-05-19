@@ -8,7 +8,7 @@ exports.seed = function (knex) {
         //Lush Product (5 Total)
         {
           seller_id: 1,
-          event_id: 1,
+       
           name: "Aqua Sea Salt Soap",
           category: ["Bath & Body", "Skincare"],
           sku: "lush1",
@@ -22,7 +22,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 1,
-          event_id: 1,
+       
           name: "Lavender Body Scrub",
           category: ["Bath & Body", "Skincare"],
           sku: "lush2",
@@ -50,7 +50,7 @@ exports.seed = function (knex) {
         },
         {
           seller_id: 1,
-          event_id: 1,
+     
           name: "Key Lime Pie Lip Balm",
           category: ["Makeup", "Skincare"],
           sku: "lush4",
