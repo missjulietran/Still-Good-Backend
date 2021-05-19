@@ -1,6 +1,9 @@
 Still Good is a B2B bulk sale ecommerce platform for companies looking to sell or buy short-shelf life/best before date products.
 
-This File is the backend of our project.
+This file is the backend of our 5 month Full Stack Web Development Immsersive Bootcamp course created with 3 members: @missjulietran, @lukaswan and @kimberlychan1.
+
+You can access our website at https://stillgood.live
+
 
 How to use this Application:
 
@@ -13,3 +16,4 @@ Technologies used:
 - Node.js to run back-end API services
 - PostgreSQL to create databases
 - Knex.js to query the database
+
