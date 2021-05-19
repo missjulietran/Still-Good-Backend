@@ -1,6 +1,6 @@
 Still Good is a B2B bulk sale ecommerce platform for companies looking to sell or buy short-shelf life/best before date products.
 
-This file is the backend of our 5 month Full Stack Web Development Immsersive Bootcamp course created with 3 members: @missjulietran, @lukaswan and @kimberlychan1.
+This file is the backend of our 5 month Full Stack Web Development Immsersive Bootcamp course created by 3 members: @missjulietran, @lukaswan and @kimberlychan1.
 
 You can access our website at https://stillgood.live
 
